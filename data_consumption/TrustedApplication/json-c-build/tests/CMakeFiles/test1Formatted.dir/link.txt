@@ -1,0 +1,1 @@
+/usr/bin/cc  -ffunction-sections -fdata-sections -Werror -Wall -Wcast-qual -Wno-error=deprecated-declarations -Wextra -Wwrite-strings -Wno-unused-parameter -Wstrict-prototypes -g  -rdynamic CMakeFiles/test1Formatted.dir/test1.c.o CMakeFiles/test1Formatted.dir/parse_flags.c.o  -o test1Formatted -Wl,-rpath,/volume/sgx-project/hello-enclave/json-c-build ../libjson-c.so.5.2.0 -lm 

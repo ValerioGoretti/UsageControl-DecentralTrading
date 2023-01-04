@@ -1,0 +1,19 @@
+enclave {
+    from "Sealing/Sealing.edl" import *;
+    from "sgx_tprotected_fs.edl" import *;
+    include "sgx_tprotected_fs.h"
+
+    trusted {
+        /* define ECALLs here. */
+        public SGX_FILE* access_protected_resource([in, string]const char* pub_k,[in, string]const char* encr_pubk, [in] int* id_res);
+    };
+
+    untrusted {
+        /* define OCALLs here. */
+        void ocall_print([in, string]const char* str);
+
+        void get_geo_location([out, size=length]char* str, size_t length);
+
+        void get_time([out, size=length]char* time, size_t length);
+    };
+};

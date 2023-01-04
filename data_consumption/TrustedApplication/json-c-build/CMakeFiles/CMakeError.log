@@ -1,0 +1,213 @@
+Determining if the include file xlocale.h exists failed with the following output:
+Change Dir: /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_c9e8b/fast"
+/usr/bin/make -f CMakeFiles/cmTC_c9e8b.dir/build.make CMakeFiles/cmTC_c9e8b.dir/build
+make[1]: Entering directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_c9e8b.dir/CheckIncludeFile.c.o
+/usr/bin/cc -D_GNU_SOURCE  -fPIE   -o CMakeFiles/cmTC_c9e8b.dir/CheckIncludeFile.c.o   -c /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:10: fatal error: xlocale.h: No such file or directory
+ #include <xlocale.h>
+          ^~~~~~~~~~~
+compilation terminated.
+CMakeFiles/cmTC_c9e8b.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_c9e8b.dir/CheckIncludeFile.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_c9e8b.dir/CheckIncludeFile.c.o] Error 1
+make[1]: Leaving directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_c9e8b/fast' failed
+make: *** [cmTC_c9e8b/fast] Error 2
+
+
+Determining if the _isnan exist failed with the following output:
+Change Dir: /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_69c92/fast"
+/usr/bin/make -f CMakeFiles/cmTC_69c92.dir/build.make CMakeFiles/cmTC_69c92.dir/build
+make[1]: Entering directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_69c92.dir/CheckSymbolExists.c.o
+/usr/bin/cc -D_GNU_SOURCE  -fPIE   -o CMakeFiles/cmTC_69c92.dir/CheckSymbolExists.c.o   -c /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function 'main':
+/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: error: '_isnan' undeclared (first use in this function)
+   return ((int*)(&_isnan))[argc];
+                   ^~~~~~
+/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_69c92.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_69c92.dir/CheckSymbolExists.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_69c92.dir/CheckSymbolExists.c.o] Error 1
+make[1]: Leaving directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_69c92/fast' failed
+make: *** [cmTC_69c92/fast] Error 2
+
+File /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef _isnan
+  return ((int*)(&_isnan))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the _finite exist failed with the following output:
+Change Dir: /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_31658/fast"
+/usr/bin/make -f CMakeFiles/cmTC_31658.dir/build.make CMakeFiles/cmTC_31658.dir/build
+make[1]: Entering directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_31658.dir/CheckSymbolExists.c.o
+/usr/bin/cc -D_GNU_SOURCE  -fPIE   -o CMakeFiles/cmTC_31658.dir/CheckSymbolExists.c.o   -c /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function 'main':
+/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: error: '_finite' undeclared (first use in this function)
+   return ((int*)(&_finite))[argc];
+                   ^~~~~~~
+/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_31658.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_31658.dir/CheckSymbolExists.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_31658.dir/CheckSymbolExists.c.o] Error 1
+make[1]: Leaving directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_31658/fast' failed
+make: *** [cmTC_31658/fast] Error 2
+
+File /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <float.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef _finite
+  return ((int*)(&_finite))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the _doprnt exist failed with the following output:
+Change Dir: /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_d4d80/fast"
+/usr/bin/make -f CMakeFiles/cmTC_d4d80.dir/build.make CMakeFiles/cmTC_d4d80.dir/build
+make[1]: Entering directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_d4d80.dir/CheckSymbolExists.c.o
+/usr/bin/cc -D_GNU_SOURCE  -fPIE   -o CMakeFiles/cmTC_d4d80.dir/CheckSymbolExists.c.o   -c /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function 'main':
+/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: error: '_doprnt' undeclared (first use in this function); did you mean 'fdopen'?
+   return ((int*)(&_doprnt))[argc];
+                   ^~~~~~~
+                   fdopen
+/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_d4d80.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_d4d80.dir/CheckSymbolExists.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_d4d80.dir/CheckSymbolExists.c.o] Error 1
+make[1]: Leaving directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_d4d80/fast' failed
+make: *** [cmTC_d4d80/fast] Error 2
+
+File /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdio.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef _doprnt
+  return ((int*)(&_doprnt))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the arc4random exist failed with the following output:
+Change Dir: /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_86864/fast"
+/usr/bin/make -f CMakeFiles/cmTC_86864.dir/build.make CMakeFiles/cmTC_86864.dir/build
+make[1]: Entering directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_86864.dir/CheckSymbolExists.c.o
+/usr/bin/cc -D_GNU_SOURCE  -fPIE   -o CMakeFiles/cmTC_86864.dir/CheckSymbolExists.c.o   -c /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function 'main':
+/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: error: 'arc4random' undeclared (first use in this function); did you mean 'srandom'?
+   return ((int*)(&arc4random))[argc];
+                   ^~~~~~~~~~
+                   srandom
+/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_86864.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_86864.dir/CheckSymbolExists.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_86864.dir/CheckSymbolExists.c.o] Error 1
+make[1]: Leaving directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_86864/fast' failed
+make: *** [cmTC_86864/fast] Error 2
+
+File /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdlib.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef arc4random
+  return ((int*)(&arc4random))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the include file bsd/stdlib.h exists failed with the following output:
+Change Dir: /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_8b713/fast"
+/usr/bin/make -f CMakeFiles/cmTC_8b713.dir/build.make CMakeFiles/cmTC_8b713.dir/build
+make[1]: Entering directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_8b713.dir/CheckIncludeFile.c.o
+/usr/bin/cc -D_GNU_SOURCE  -fPIE   -o CMakeFiles/cmTC_8b713.dir/CheckIncludeFile.c.o   -c /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:10: fatal error: bsd/stdlib.h: No such file or directory
+ #include <bsd/stdlib.h>
+          ^~~~~~~~~~~~~~
+compilation terminated.
+CMakeFiles/cmTC_8b713.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_8b713.dir/CheckIncludeFile.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_8b713.dir/CheckIncludeFile.c.o] Error 1
+make[1]: Leaving directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_8b713/fast' failed
+make: *** [cmTC_8b713/fast] Error 2
+
+
+Performing C SOURCE FILE Test HAS_GNU_WARNING_LONG failed with the following output:
+Change Dir: /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_e900e/fast"
+/usr/bin/make -f CMakeFiles/cmTC_e900e.dir/build.make CMakeFiles/cmTC_e900e.dir/build
+make[1]: Entering directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_e900e.dir/src.c.o
+/usr/bin/cc -D_GNU_SOURCE  -DHAS_GNU_WARNING_LONG -fPIE   -o CMakeFiles/cmTC_e900e.dir/src.c.o   -c /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp/src.c
+/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp/src.c:3:9: warning: missing terminating " character
+ __asm__(".section .gnu.json_object_get
+         ^
+/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp/src.c:3:9: error: missing terminating " character
+ __asm__(".section .gnu.json_object_get
+         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp/src.c:4:2: error: expected string literal before '.' token
+  .ascii "Please link against libjson-c instead of libjson"
+  ^
+/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp/src.c:5:7: warning: missing terminating " character
+  .text");
+       ^
+/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp/src.c:5:7: error: missing terminating " character
+  .text");
+       ^~~
+CMakeFiles/cmTC_e900e.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_e900e.dir/src.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_e900e.dir/src.c.o] Error 1
+make[1]: Leaving directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_e900e/fast' failed
+make: *** [cmTC_e900e/fast] Error 2
+
+Source file was:
+
+extern void json_object_get();
+__asm__(".section .gnu.json_object_get
+	.ascii "Please link against libjson-c instead of libjson"
+	.text");
+int main(int c, char *v) { return 0;}
+

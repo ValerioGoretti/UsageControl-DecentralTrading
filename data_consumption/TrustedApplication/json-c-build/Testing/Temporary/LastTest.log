@@ -1,0 +1,365 @@
+Start testing: Dec 15 16:27 UTC
+----------------------------------------------------------
+1/24 Testing: test1
+1/24 Test: test1
+Command: "/volume/sgx-project/hello-enclave/json-c/tests/test1.test"
+Directory: /volume/sgx-project/hello-enclave/json-c-build/tests
+"test1" start time: Dec 15 16:27 UTC
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.07 sec
+----------------------------------------------------------
+Test Passed.
+"test1" end time: Dec 15 16:27 UTC
+"test1" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/24 Testing: test2
+2/24 Test: test2
+Command: "/volume/sgx-project/hello-enclave/json-c/tests/test2.test"
+Directory: /volume/sgx-project/hello-enclave/json-c-build/tests
+"test2" start time: Dec 15 16:27 UTC
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.07 sec
+----------------------------------------------------------
+Test Passed.
+"test2" end time: Dec 15 16:27 UTC
+"test2" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/24 Testing: test4
+3/24 Test: test4
+Command: "/volume/sgx-project/hello-enclave/json-c/tests/test4.test"
+Directory: /volume/sgx-project/hello-enclave/json-c-build/tests
+"test4" start time: Dec 15 16:27 UTC
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.05 sec
+----------------------------------------------------------
+Test Passed.
+"test4" end time: Dec 15 16:27 UTC
+"test4" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/24 Testing: testReplaceExisting
+4/24 Test: testReplaceExisting
+Command: "/volume/sgx-project/hello-enclave/json-c/tests/testReplaceExisting.test"
+Directory: /volume/sgx-project/hello-enclave/json-c-build/tests
+"testReplaceExisting" start time: Dec 15 16:27 UTC
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.04 sec
+----------------------------------------------------------
+Test Passed.
+"testReplaceExisting" end time: Dec 15 16:27 UTC
+"testReplaceExisting" time elapsed: 00:00:00
+----------------------------------------------------------
+
+5/24 Testing: test_cast
+5/24 Test: test_cast
+Command: "/volume/sgx-project/hello-enclave/json-c/tests/test_cast.test"
+Directory: /volume/sgx-project/hello-enclave/json-c-build/tests
+"test_cast" start time: Dec 15 16:27 UTC
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.04 sec
+----------------------------------------------------------
+Test Passed.
+"test_cast" end time: Dec 15 16:27 UTC
+"test_cast" time elapsed: 00:00:00
+----------------------------------------------------------
+
+6/24 Testing: test_charcase
+6/24 Test: test_charcase
+Command: "/volume/sgx-project/hello-enclave/json-c/tests/test_charcase.test"
+Directory: /volume/sgx-project/hello-enclave/json-c-build/tests
+"test_charcase" start time: Dec 15 16:27 UTC
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.04 sec
+----------------------------------------------------------
+Test Passed.
+"test_charcase" end time: Dec 15 16:27 UTC
+"test_charcase" time elapsed: 00:00:00
+----------------------------------------------------------
+
+7/24 Testing: test_compare
+7/24 Test: test_compare
+Command: "/volume/sgx-project/hello-enclave/json-c/tests/test_compare.test"
+Directory: /volume/sgx-project/hello-enclave/json-c-build/tests
+"test_compare" start time: Dec 15 16:27 UTC
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"test_compare" end time: Dec 15 16:27 UTC
+"test_compare" time elapsed: 00:00:00
+----------------------------------------------------------
+
+8/24 Testing: test_deep_copy
+8/24 Test: test_deep_copy
+Command: "/volume/sgx-project/hello-enclave/json-c/tests/test_deep_copy.test"
+Directory: /volume/sgx-project/hello-enclave/json-c-build/tests
+"test_deep_copy" start time: Dec 15 16:27 UTC
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"test_deep_copy" end time: Dec 15 16:27 UTC
+"test_deep_copy" time elapsed: 00:00:00
+----------------------------------------------------------
+
+9/24 Testing: test_double_serializer
+9/24 Test: test_double_serializer
+Command: "/volume/sgx-project/hello-enclave/json-c/tests/test_double_serializer.test"
+Directory: /volume/sgx-project/hello-enclave/json-c-build/tests
+"test_double_serializer" start time: Dec 15 16:27 UTC
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"test_double_serializer" end time: Dec 15 16:27 UTC
+"test_double_serializer" time elapsed: 00:00:00
+----------------------------------------------------------
+
+10/24 Testing: test_float
+10/24 Test: test_float
+Command: "/volume/sgx-project/hello-enclave/json-c/tests/test_float.test"
+Directory: /volume/sgx-project/hello-enclave/json-c-build/tests
+"test_float" start time: Dec 15 16:27 UTC
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"test_float" end time: Dec 15 16:27 UTC
+"test_float" time elapsed: 00:00:00
+----------------------------------------------------------
+
+11/24 Testing: test_int_add
+11/24 Test: test_int_add
+Command: "/volume/sgx-project/hello-enclave/json-c/tests/test_int_add.test"
+Directory: /volume/sgx-project/hello-enclave/json-c-build/tests
+"test_int_add" start time: Dec 15 16:27 UTC
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"test_int_add" end time: Dec 15 16:27 UTC
+"test_int_add" time elapsed: 00:00:00
+----------------------------------------------------------
+
+12/24 Testing: test_int_get
+12/24 Test: test_int_get
+Command: "/volume/sgx-project/hello-enclave/json-c/tests/test_int_get.test"
+Directory: /volume/sgx-project/hello-enclave/json-c-build/tests
+"test_int_get" start time: Dec 15 16:27 UTC
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"test_int_get" end time: Dec 15 16:27 UTC
+"test_int_get" time elapsed: 00:00:00
+----------------------------------------------------------
+
+13/24 Testing: test_locale
+13/24 Test: test_locale
+Command: "/volume/sgx-project/hello-enclave/json-c/tests/test_locale.test"
+Directory: /volume/sgx-project/hello-enclave/json-c-build/tests
+"test_locale" start time: Dec 15 16:27 UTC
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"test_locale" end time: Dec 15 16:27 UTC
+"test_locale" time elapsed: 00:00:00
+----------------------------------------------------------
+
+14/24 Testing: test_null
+14/24 Test: test_null
+Command: "/volume/sgx-project/hello-enclave/json-c/tests/test_null.test"
+Directory: /volume/sgx-project/hello-enclave/json-c-build/tests
+"test_null" start time: Dec 15 16:27 UTC
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"test_null" end time: Dec 15 16:27 UTC
+"test_null" time elapsed: 00:00:00
+----------------------------------------------------------
+
+15/24 Testing: test_parse
+15/24 Test: test_parse
+Command: "/volume/sgx-project/hello-enclave/json-c/tests/test_parse.test"
+Directory: /volume/sgx-project/hello-enclave/json-c-build/tests
+"test_parse" start time: Dec 15 16:27 UTC
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"test_parse" end time: Dec 15 16:27 UTC
+"test_parse" time elapsed: 00:00:00
+----------------------------------------------------------
+
+16/24 Testing: test_parse_int64
+16/24 Test: test_parse_int64
+Command: "/volume/sgx-project/hello-enclave/json-c/tests/test_parse_int64.test"
+Directory: /volume/sgx-project/hello-enclave/json-c-build/tests
+"test_parse_int64" start time: Dec 15 16:27 UTC
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"test_parse_int64" end time: Dec 15 16:27 UTC
+"test_parse_int64" time elapsed: 00:00:00
+----------------------------------------------------------
+
+17/24 Testing: test_printbuf
+17/24 Test: test_printbuf
+Command: "/volume/sgx-project/hello-enclave/json-c/tests/test_printbuf.test"
+Directory: /volume/sgx-project/hello-enclave/json-c-build/tests
+"test_printbuf" start time: Dec 15 16:27 UTC
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"test_printbuf" end time: Dec 15 16:27 UTC
+"test_printbuf" time elapsed: 00:00:00
+----------------------------------------------------------
+
+18/24 Testing: test_set_serializer
+18/24 Test: test_set_serializer
+Command: "/volume/sgx-project/hello-enclave/json-c/tests/test_set_serializer.test"
+Directory: /volume/sgx-project/hello-enclave/json-c-build/tests
+"test_set_serializer" start time: Dec 15 16:27 UTC
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"test_set_serializer" end time: Dec 15 16:27 UTC
+"test_set_serializer" time elapsed: 00:00:00
+----------------------------------------------------------
+
+19/24 Testing: test_set_value
+19/24 Test: test_set_value
+Command: "/volume/sgx-project/hello-enclave/json-c/tests/test_set_value.test"
+Directory: /volume/sgx-project/hello-enclave/json-c-build/tests
+"test_set_value" start time: Dec 15 16:27 UTC
+Output:
+----------------------------------------------------------
+12.300000000000001
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"test_set_value" end time: Dec 15 16:27 UTC
+"test_set_value" time elapsed: 00:00:00
+----------------------------------------------------------
+
+20/24 Testing: test_strerror
+20/24 Test: test_strerror
+Command: "/volume/sgx-project/hello-enclave/json-c/tests/test_strerror.test"
+Directory: /volume/sgx-project/hello-enclave/json-c-build/tests
+"test_strerror" start time: Dec 15 16:27 UTC
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"test_strerror" end time: Dec 15 16:27 UTC
+"test_strerror" time elapsed: 00:00:00
+----------------------------------------------------------
+
+21/24 Testing: test_util_file
+21/24 Test: test_util_file
+Command: "/volume/sgx-project/hello-enclave/json-c/tests/test_util_file.test"
+Directory: /volume/sgx-project/hello-enclave/json-c-build/tests
+"test_util_file" start time: Dec 15 16:27 UTC
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"test_util_file" end time: Dec 15 16:27 UTC
+"test_util_file" time elapsed: 00:00:00
+----------------------------------------------------------
+
+22/24 Testing: test_visit
+22/24 Test: test_visit
+Command: "/volume/sgx-project/hello-enclave/json-c/tests/test_visit.test"
+Directory: /volume/sgx-project/hello-enclave/json-c-build/tests
+"test_visit" start time: Dec 15 16:27 UTC
+Output:
+----------------------------------------------------------
+ERROR: invalid return value from json_c_visit userfunc: 100
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"test_visit" end time: Dec 15 16:27 UTC
+"test_visit" time elapsed: 00:00:00
+----------------------------------------------------------
+
+23/24 Testing: test_object_iterator
+23/24 Test: test_object_iterator
+Command: "/volume/sgx-project/hello-enclave/json-c/tests/test_object_iterator.test"
+Directory: /volume/sgx-project/hello-enclave/json-c-build/tests
+"test_object_iterator" start time: Dec 15 16:27 UTC
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"test_object_iterator" end time: Dec 15 16:27 UTC
+"test_object_iterator" time elapsed: 00:00:00
+----------------------------------------------------------
+
+24/24 Testing: test_json_pointer
+24/24 Test: test_json_pointer
+Command: "/volume/sgx-project/hello-enclave/json-c/tests/test_json_pointer.test"
+Directory: /volume/sgx-project/hello-enclave/json-c-build/tests
+"test_json_pointer" start time: Dec 15 16:27 UTC
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"test_json_pointer" end time: Dec 15 16:27 UTC
+"test_json_pointer" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Dec 15 16:27 UTC

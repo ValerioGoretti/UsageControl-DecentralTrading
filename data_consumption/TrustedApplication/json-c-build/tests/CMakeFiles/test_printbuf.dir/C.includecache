@@ -1,0 +1,32 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/volume/sgx-project/hello-enclave/json-c/debug.h
+stdlib.h
+-
+
+/volume/sgx-project/hello-enclave/json-c/printbuf.h
+
+/volume/sgx-project/hello-enclave/json-c/tests/test_printbuf.c
+assert.h
+-
+limits.h
+-
+stddef.h
+-
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+debug.h
+/volume/sgx-project/hello-enclave/json-c/tests/debug.h
+printbuf.h
+/volume/sgx-project/hello-enclave/json-c/tests/printbuf.h
+
