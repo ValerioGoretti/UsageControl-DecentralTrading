@@ -1,0 +1,1276 @@
+The system is: Linux - 5.19.0-26-generic - x86_64
+Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+Compiler: /usr/bin/cc 
+Build flags: 
+Id flags:  
+
+The output was:
+0
+
+
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
+
+The C compiler identification is GNU, found in "/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/3.10.2/CompilerIdC/a.out"
+
+Determining if the C compiler works passed with the following output:
+Change Dir: /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_2f853/fast"
+/usr/bin/make -f CMakeFiles/cmTC_2f853.dir/build.make CMakeFiles/cmTC_2f853.dir/build
+make[1]: Entering directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_2f853.dir/testCCompiler.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_2f853.dir/testCCompiler.c.o   -c /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C executable cmTC_2f853
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2f853.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_2f853.dir/testCCompiler.c.o  -o cmTC_2f853 
+make[1]: Leaving directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+
+
+Detecting C compiler ABI info compiled with the following output:
+Change Dir: /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_e8c9b/fast"
+/usr/bin/make -f CMakeFiles/cmTC_e8c9b.dir/build.make CMakeFiles/cmTC_e8c9b.dir/build
+make[1]: Entering directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_e8c9b.dir/CMakeCCompilerABI.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_e8c9b.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.10/Modules/CMakeCCompilerABI.c
+Linking C executable cmTC_e8c9b
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e8c9b.dir/link.txt --verbose=1
+/usr/bin/cc     -v -rdynamic CMakeFiles/cmTC_e8c9b.dir/CMakeCCompilerABI.c.o  -o cmTC_e8c9b 
+Using built-in specs.
+COLLECT_GCC=/usr/bin/cc
+COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper
+OFFLOAD_TARGET_NAMES=nvptx-none
+OFFLOAD_TARGET_DEFAULT=1
+Target: x86_64-linux-gnu
+Configured with: ../src/configure -v --with-pkgversion='Ubuntu 7.5.0-3ubuntu1~18.04' --with-bugurl=file:///usr/share/doc/gcc-7/README.Bugs --enable-languages=c,ada,c++,go,brig,d,fortran,objc,obj-c++ --prefix=/usr --with-gcc-major-version-only --program-suffix=-7 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-libmpx --enable-plugin --enable-default-pie --with-system-zlib --with-target-system-zlib --enable-objc-gc=auto --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu
+Thread model: posix
+gcc version 7.5.0 (Ubuntu 7.5.0-3ubuntu1~18.04) 
+COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/
+LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_e8c9b' '-mtune=generic' '-march=x86-64'
+ /usr/lib/gcc/x86_64-linux-gnu/7/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper -plugin-opt=-fresolution=/tmp/ccr4xJni.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_e8c9b /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/7 -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/7/../../.. CMakeFiles/cmTC_e8c9b.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/7/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crtn.o
+COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_e8c9b' '-mtune=generic' '-march=x86-64'
+make[1]: Leaving directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+
+
+Parsed C implicit link information from above output:
+  link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_e8c9b/fast"]
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_e8c9b.dir/build.make CMakeFiles/cmTC_e8c9b.dir/build]
+  ignore line: [make[1]: Entering directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp']
+  ignore line: [Building C object CMakeFiles/cmTC_e8c9b.dir/CMakeCCompilerABI.c.o]
+  ignore line: [/usr/bin/cc    -o CMakeFiles/cmTC_e8c9b.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.10/Modules/CMakeCCompilerABI.c]
+  ignore line: [Linking C executable cmTC_e8c9b]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e8c9b.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/cc     -v -rdynamic CMakeFiles/cmTC_e8c9b.dir/CMakeCCompilerABI.c.o  -o cmTC_e8c9b ]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/usr/bin/cc]
+  ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper]
+  ignore line: [OFFLOAD_TARGET_NAMES=nvptx-none]
+  ignore line: [OFFLOAD_TARGET_DEFAULT=1]
+  ignore line: [Target: x86_64-linux-gnu]
+  ignore line: [Configured with: ../src/configure -v --with-pkgversion='Ubuntu 7.5.0-3ubuntu1~18.04' --with-bugurl=file:///usr/share/doc/gcc-7/README.Bugs --enable-languages=c,ada,c++,go,brig,d,fortran,objc,obj-c++ --prefix=/usr --with-gcc-major-version-only --program-suffix=-7 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-libmpx --enable-plugin --enable-default-pie --with-system-zlib --with-target-system-zlib --enable-objc-gc=auto --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 7.5.0 (Ubuntu 7.5.0-3ubuntu1~18.04) ]
+  ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/]
+  ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../:/lib/:/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_e8c9b' '-mtune=generic' '-march=x86-64']
+  link line: [ /usr/lib/gcc/x86_64-linux-gnu/7/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper -plugin-opt=-fresolution=/tmp/ccr4xJni.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_e8c9b /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/7 -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/7/../../.. CMakeFiles/cmTC_e8c9b.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/7/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crtn.o]
+    arg [/usr/lib/gcc/x86_64-linux-gnu/7/collect2] ==> ignore
+    arg [-plugin] ==> ignore
+    arg [/usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so] ==> ignore
+    arg [-plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/ccr4xJni.res] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [-plugin-opt=-pass-through=-lc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [--build-id] ==> ignore
+    arg [--eh-frame-hdr] ==> ignore
+    arg [-m] ==> ignore
+    arg [elf_x86_64] ==> ignore
+    arg [--hash-style=gnu] ==> ignore
+    arg [--as-needed] ==> ignore
+    arg [-export-dynamic] ==> ignore
+    arg [-dynamic-linker] ==> ignore
+    arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
+    arg [-pie] ==> ignore
+    arg [-znow] ==> ignore
+    arg [-zrelro] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTC_e8c9b] ==> ignore
+    arg [/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o] ==> ignore
+    arg [/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o] ==> ignore
+    arg [/usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o] ==> ignore
+    arg [-L/usr/lib/gcc/x86_64-linux-gnu/7] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/7]
+    arg [-L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu]
+    arg [-L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib]
+    arg [-L/lib/x86_64-linux-gnu] ==> dir [/lib/x86_64-linux-gnu]
+    arg [-L/lib/../lib] ==> dir [/lib/../lib]
+    arg [-L/usr/lib/x86_64-linux-gnu] ==> dir [/usr/lib/x86_64-linux-gnu]
+    arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
+    arg [-L/usr/lib/gcc/x86_64-linux-gnu/7/../../..] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/7/../../..]
+    arg [CMakeFiles/cmTC_e8c9b.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [-lgcc] ==> lib [gcc]
+    arg [--push-state] ==> ignore
+    arg [--as-needed] ==> ignore
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [--pop-state] ==> ignore
+    arg [-lc] ==> lib [c]
+    arg [-lgcc] ==> lib [gcc]
+    arg [--push-state] ==> ignore
+    arg [--as-needed] ==> ignore
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [--pop-state] ==> ignore
+    arg [/usr/lib/gcc/x86_64-linux-gnu/7/crtendS.o] ==> ignore
+    arg [/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crtn.o] ==> ignore
+  collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/7] ==> [/usr/lib/gcc/x86_64-linux-gnu/7]
+  collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu] ==> [/usr/lib/x86_64-linux-gnu]
+  collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib] ==> [/usr/lib]
+  collapse library dir [/lib/x86_64-linux-gnu] ==> [/lib/x86_64-linux-gnu]
+  collapse library dir [/lib/../lib] ==> [/lib]
+  collapse library dir [/usr/lib/x86_64-linux-gnu] ==> [/usr/lib/x86_64-linux-gnu]
+  collapse library dir [/usr/lib/../lib] ==> [/usr/lib]
+  collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/7/../../..] ==> [/usr/lib]
+  implicit libs: [gcc;gcc_s;c;gcc;gcc_s]
+  implicit dirs: [/usr/lib/gcc/x86_64-linux-gnu/7;/usr/lib/x86_64-linux-gnu;/usr/lib;/lib/x86_64-linux-gnu;/lib]
+  implicit fwks: []
+
+
+
+
+Detecting C [-std=c11] compiler features compiled with the following output:
+Change Dir: /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_25a3c/fast"
+/usr/bin/make -f CMakeFiles/cmTC_25a3c.dir/build.make CMakeFiles/cmTC_25a3c.dir/build
+make[1]: Entering directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_25a3c.dir/feature_tests.c.o
+/usr/bin/cc   -std=c11 -o CMakeFiles/cmTC_25a3c.dir/feature_tests.c.o   -c /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/feature_tests.c
+Linking C executable cmTC_25a3c
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_25a3c.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_25a3c.dir/feature_tests.c.o  -o cmTC_25a3c 
+make[1]: Leaving directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+
+
+    Feature record: C_FEATURE:1c_function_prototypes
+    Feature record: C_FEATURE:1c_restrict
+    Feature record: C_FEATURE:1c_static_assert
+    Feature record: C_FEATURE:1c_variadic_macros
+
+
+Detecting C [-std=c99] compiler features compiled with the following output:
+Change Dir: /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_d2406/fast"
+/usr/bin/make -f CMakeFiles/cmTC_d2406.dir/build.make CMakeFiles/cmTC_d2406.dir/build
+make[1]: Entering directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_d2406.dir/feature_tests.c.o
+/usr/bin/cc   -std=c99 -o CMakeFiles/cmTC_d2406.dir/feature_tests.c.o   -c /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/feature_tests.c
+Linking C executable cmTC_d2406
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d2406.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_d2406.dir/feature_tests.c.o  -o cmTC_d2406 
+make[1]: Leaving directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+
+
+    Feature record: C_FEATURE:1c_function_prototypes
+    Feature record: C_FEATURE:1c_restrict
+    Feature record: C_FEATURE:0c_static_assert
+    Feature record: C_FEATURE:1c_variadic_macros
+
+
+Detecting C [-std=c90] compiler features compiled with the following output:
+Change Dir: /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_ec97b/fast"
+/usr/bin/make -f CMakeFiles/cmTC_ec97b.dir/build.make CMakeFiles/cmTC_ec97b.dir/build
+make[1]: Entering directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_ec97b.dir/feature_tests.c.o
+/usr/bin/cc   -std=c90 -o CMakeFiles/cmTC_ec97b.dir/feature_tests.c.o   -c /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/feature_tests.c
+Linking C executable cmTC_ec97b
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ec97b.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_ec97b.dir/feature_tests.c.o  -o cmTC_ec97b 
+make[1]: Leaving directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+
+
+    Feature record: C_FEATURE:1c_function_prototypes
+    Feature record: C_FEATURE:0c_restrict
+    Feature record: C_FEATURE:0c_static_assert
+    Feature record: C_FEATURE:0c_variadic_macros
+Determining if the include file fcntl.h exists passed with the following output:
+Change Dir: /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_f7e50/fast"
+/usr/bin/make -f CMakeFiles/cmTC_f7e50.dir/build.make CMakeFiles/cmTC_f7e50.dir/build
+make[1]: Entering directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f7e50.dir/CheckIncludeFile.c.o
+/usr/bin/cc -D_GNU_SOURCE  -fPIE   -o CMakeFiles/cmTC_f7e50.dir/CheckIncludeFile.c.o   -c /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_f7e50
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f7e50.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_f7e50.dir/CheckIncludeFile.c.o  -o cmTC_f7e50 
+make[1]: Leaving directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+
+
+Determining if the include file inttypes.h exists passed with the following output:
+Change Dir: /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_f23fe/fast"
+/usr/bin/make -f CMakeFiles/cmTC_f23fe.dir/build.make CMakeFiles/cmTC_f23fe.dir/build
+make[1]: Entering directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f23fe.dir/CheckIncludeFile.c.o
+/usr/bin/cc -D_GNU_SOURCE  -fPIE   -o CMakeFiles/cmTC_f23fe.dir/CheckIncludeFile.c.o   -c /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_f23fe
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f23fe.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_f23fe.dir/CheckIncludeFile.c.o  -o cmTC_f23fe 
+make[1]: Leaving directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+
+
+Determining if the include file stdarg.h exists passed with the following output:
+Change Dir: /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_47024/fast"
+/usr/bin/make -f CMakeFiles/cmTC_47024.dir/build.make CMakeFiles/cmTC_47024.dir/build
+make[1]: Entering directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_47024.dir/CheckIncludeFile.c.o
+/usr/bin/cc -D_GNU_SOURCE  -fPIE   -o CMakeFiles/cmTC_47024.dir/CheckIncludeFile.c.o   -c /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_47024
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_47024.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_47024.dir/CheckIncludeFile.c.o  -o cmTC_47024 
+make[1]: Leaving directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+
+
+Determining if the include file strings.h exists passed with the following output:
+Change Dir: /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_92b7a/fast"
+/usr/bin/make -f CMakeFiles/cmTC_92b7a.dir/build.make CMakeFiles/cmTC_92b7a.dir/build
+make[1]: Entering directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_92b7a.dir/CheckIncludeFile.c.o
+/usr/bin/cc -D_GNU_SOURCE  -fPIE   -o CMakeFiles/cmTC_92b7a.dir/CheckIncludeFile.c.o   -c /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_92b7a
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_92b7a.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_92b7a.dir/CheckIncludeFile.c.o  -o cmTC_92b7a 
+make[1]: Leaving directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+
+
+Determining if the include file string.h exists passed with the following output:
+Change Dir: /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_7c478/fast"
+/usr/bin/make -f CMakeFiles/cmTC_7c478.dir/build.make CMakeFiles/cmTC_7c478.dir/build
+make[1]: Entering directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_7c478.dir/CheckIncludeFile.c.o
+/usr/bin/cc -D_GNU_SOURCE  -fPIE   -o CMakeFiles/cmTC_7c478.dir/CheckIncludeFile.c.o   -c /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_7c478
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7c478.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_7c478.dir/CheckIncludeFile.c.o  -o cmTC_7c478 
+make[1]: Leaving directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+
+
+Determining if the include file syslog.h exists passed with the following output:
+Change Dir: /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_6ed7d/fast"
+/usr/bin/make -f CMakeFiles/cmTC_6ed7d.dir/build.make CMakeFiles/cmTC_6ed7d.dir/build
+make[1]: Entering directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_6ed7d.dir/CheckIncludeFile.c.o
+/usr/bin/cc -D_GNU_SOURCE  -fPIE   -o CMakeFiles/cmTC_6ed7d.dir/CheckIncludeFile.c.o   -c /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_6ed7d
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6ed7d.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_6ed7d.dir/CheckIncludeFile.c.o  -o cmTC_6ed7d 
+make[1]: Leaving directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+
+
+Determining if files stdlib.h;stdarg.h;string.h;float.h exist passed with the following output:
+Change Dir: /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_7c754/fast"
+/usr/bin/make -f CMakeFiles/cmTC_7c754.dir/build.make CMakeFiles/cmTC_7c754.dir/build
+make[1]: Entering directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_7c754.dir/CheckIncludeFiles.c.o
+/usr/bin/cc -D_GNU_SOURCE  -fPIE   -o CMakeFiles/cmTC_7c754.dir/CheckIncludeFiles.c.o   -c /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp/CheckIncludeFiles.c
+Linking C executable cmTC_7c754
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7c754.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_7c754.dir/CheckIncludeFiles.c.o  -o cmTC_7c754 
+make[1]: Leaving directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+
+
+Determining if the include file unistd.h exists passed with the following output:
+Change Dir: /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_e9a1c/fast"
+/usr/bin/make -f CMakeFiles/cmTC_e9a1c.dir/build.make CMakeFiles/cmTC_e9a1c.dir/build
+make[1]: Entering directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_e9a1c.dir/CheckIncludeFile.c.o
+/usr/bin/cc -D_GNU_SOURCE  -fPIE   -o CMakeFiles/cmTC_e9a1c.dir/CheckIncludeFile.c.o   -c /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_e9a1c
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e9a1c.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_e9a1c.dir/CheckIncludeFile.c.o  -o cmTC_e9a1c 
+make[1]: Leaving directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+
+
+Determining if the include file sys/types.h exists passed with the following output:
+Change Dir: /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_b8fd3/fast"
+/usr/bin/make -f CMakeFiles/cmTC_b8fd3.dir/build.make CMakeFiles/cmTC_b8fd3.dir/build
+make[1]: Entering directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_b8fd3.dir/CheckIncludeFile.c.o
+/usr/bin/cc -D_GNU_SOURCE  -fPIE   -o CMakeFiles/cmTC_b8fd3.dir/CheckIncludeFile.c.o   -c /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_b8fd3
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b8fd3.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_b8fd3.dir/CheckIncludeFile.c.o  -o cmTC_b8fd3 
+make[1]: Leaving directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+
+
+Determining if the include file sys/resource.h exists passed with the following output:
+Change Dir: /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_330c6/fast"
+/usr/bin/make -f CMakeFiles/cmTC_330c6.dir/build.make CMakeFiles/cmTC_330c6.dir/build
+make[1]: Entering directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_330c6.dir/CheckIncludeFile.c.o
+/usr/bin/cc -D_GNU_SOURCE  -fPIE   -o CMakeFiles/cmTC_330c6.dir/CheckIncludeFile.c.o   -c /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_330c6
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_330c6.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_330c6.dir/CheckIncludeFile.c.o  -o cmTC_330c6 
+make[1]: Leaving directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+
+
+Determining if the include file dlfcn.h exists passed with the following output:
+Change Dir: /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_74cd0/fast"
+/usr/bin/make -f CMakeFiles/cmTC_74cd0.dir/build.make CMakeFiles/cmTC_74cd0.dir/build
+make[1]: Entering directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_74cd0.dir/CheckIncludeFile.c.o
+/usr/bin/cc -D_GNU_SOURCE  -fPIE   -o CMakeFiles/cmTC_74cd0.dir/CheckIncludeFile.c.o   -c /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_74cd0
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_74cd0.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_74cd0.dir/CheckIncludeFile.c.o  -o cmTC_74cd0 
+make[1]: Leaving directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+
+
+Determining if the include file endian.h exists passed with the following output:
+Change Dir: /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_7aa43/fast"
+/usr/bin/make -f CMakeFiles/cmTC_7aa43.dir/build.make CMakeFiles/cmTC_7aa43.dir/build
+make[1]: Entering directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_7aa43.dir/CheckIncludeFile.c.o
+/usr/bin/cc -D_GNU_SOURCE  -fPIE   -o CMakeFiles/cmTC_7aa43.dir/CheckIncludeFile.c.o   -c /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_7aa43
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7aa43.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_7aa43.dir/CheckIncludeFile.c.o  -o cmTC_7aa43 
+make[1]: Leaving directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+
+
+Determining if the include file limits.h exists passed with the following output:
+Change Dir: /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_e8d9a/fast"
+/usr/bin/make -f CMakeFiles/cmTC_e8d9a.dir/build.make CMakeFiles/cmTC_e8d9a.dir/build
+make[1]: Entering directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_e8d9a.dir/CheckIncludeFile.c.o
+/usr/bin/cc -D_GNU_SOURCE  -fPIE   -o CMakeFiles/cmTC_e8d9a.dir/CheckIncludeFile.c.o   -c /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_e8d9a
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e8d9a.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_e8d9a.dir/CheckIncludeFile.c.o  -o cmTC_e8d9a 
+make[1]: Leaving directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+
+
+Determining if the include file locale.h exists passed with the following output:
+Change Dir: /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_8a7cd/fast"
+/usr/bin/make -f CMakeFiles/cmTC_8a7cd.dir/build.make CMakeFiles/cmTC_8a7cd.dir/build
+make[1]: Entering directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_8a7cd.dir/CheckIncludeFile.c.o
+/usr/bin/cc -D_GNU_SOURCE  -fPIE   -o CMakeFiles/cmTC_8a7cd.dir/CheckIncludeFile.c.o   -c /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_8a7cd
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_8a7cd.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_8a7cd.dir/CheckIncludeFile.c.o  -o cmTC_8a7cd 
+make[1]: Leaving directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+
+
+Determining if the include file memory.h exists passed with the following output:
+Change Dir: /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_9d23a/fast"
+/usr/bin/make -f CMakeFiles/cmTC_9d23a.dir/build.make CMakeFiles/cmTC_9d23a.dir/build
+make[1]: Entering directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_9d23a.dir/CheckIncludeFile.c.o
+/usr/bin/cc -D_GNU_SOURCE  -fPIE   -o CMakeFiles/cmTC_9d23a.dir/CheckIncludeFile.c.o   -c /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_9d23a
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9d23a.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_9d23a.dir/CheckIncludeFile.c.o  -o cmTC_9d23a 
+make[1]: Leaving directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+
+
+Determining if the include file stdint.h exists passed with the following output:
+Change Dir: /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_12f99/fast"
+/usr/bin/make -f CMakeFiles/cmTC_12f99.dir/build.make CMakeFiles/cmTC_12f99.dir/build
+make[1]: Entering directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_12f99.dir/CheckIncludeFile.c.o
+/usr/bin/cc -D_GNU_SOURCE  -fPIE   -o CMakeFiles/cmTC_12f99.dir/CheckIncludeFile.c.o   -c /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_12f99
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_12f99.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_12f99.dir/CheckIncludeFile.c.o  -o cmTC_12f99 
+make[1]: Leaving directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+
+
+Determining if the include file stdlib.h exists passed with the following output:
+Change Dir: /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_b9c4d/fast"
+/usr/bin/make -f CMakeFiles/cmTC_b9c4d.dir/build.make CMakeFiles/cmTC_b9c4d.dir/build
+make[1]: Entering directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_b9c4d.dir/CheckIncludeFile.c.o
+/usr/bin/cc -D_GNU_SOURCE  -fPIE   -o CMakeFiles/cmTC_b9c4d.dir/CheckIncludeFile.c.o   -c /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_b9c4d
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b9c4d.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_b9c4d.dir/CheckIncludeFile.c.o  -o cmTC_b9c4d 
+make[1]: Leaving directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+
+
+Determining if the include file sys/cdefs.h exists passed with the following output:
+Change Dir: /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_d0656/fast"
+/usr/bin/make -f CMakeFiles/cmTC_d0656.dir/build.make CMakeFiles/cmTC_d0656.dir/build
+make[1]: Entering directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_d0656.dir/CheckIncludeFile.c.o
+/usr/bin/cc -D_GNU_SOURCE  -fPIE   -o CMakeFiles/cmTC_d0656.dir/CheckIncludeFile.c.o   -c /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_d0656
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d0656.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_d0656.dir/CheckIncludeFile.c.o  -o cmTC_d0656 
+make[1]: Leaving directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+
+
+Determining if the include file sys/param.h exists passed with the following output:
+Change Dir: /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_ac174/fast"
+/usr/bin/make -f CMakeFiles/cmTC_ac174.dir/build.make CMakeFiles/cmTC_ac174.dir/build
+make[1]: Entering directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_ac174.dir/CheckIncludeFile.c.o
+/usr/bin/cc -D_GNU_SOURCE  -fPIE   -o CMakeFiles/cmTC_ac174.dir/CheckIncludeFile.c.o   -c /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_ac174
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ac174.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_ac174.dir/CheckIncludeFile.c.o  -o cmTC_ac174 
+make[1]: Leaving directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+
+
+Determining if the include file sys/random.h exists passed with the following output:
+Change Dir: /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_31ffd/fast"
+/usr/bin/make -f CMakeFiles/cmTC_31ffd.dir/build.make CMakeFiles/cmTC_31ffd.dir/build
+make[1]: Entering directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_31ffd.dir/CheckIncludeFile.c.o
+/usr/bin/cc -D_GNU_SOURCE  -fPIE   -o CMakeFiles/cmTC_31ffd.dir/CheckIncludeFile.c.o   -c /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_31ffd
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_31ffd.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_31ffd.dir/CheckIncludeFile.c.o  -o cmTC_31ffd 
+make[1]: Leaving directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+
+
+Determining if the include file sys/stat.h exists passed with the following output:
+Change Dir: /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_c8078/fast"
+/usr/bin/make -f CMakeFiles/cmTC_c8078.dir/build.make CMakeFiles/cmTC_c8078.dir/build
+make[1]: Entering directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_c8078.dir/CheckIncludeFile.c.o
+/usr/bin/cc -D_GNU_SOURCE  -fPIE   -o CMakeFiles/cmTC_c8078.dir/CheckIncludeFile.c.o   -c /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_c8078
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c8078.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_c8078.dir/CheckIncludeFile.c.o  -o cmTC_c8078 
+make[1]: Leaving directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+
+
+Determining if the INFINITY exist passed with the following output:
+Change Dir: /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_d422f/fast"
+/usr/bin/make -f CMakeFiles/cmTC_d422f.dir/build.make CMakeFiles/cmTC_d422f.dir/build
+make[1]: Entering directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_d422f.dir/CheckSymbolExists.c.o
+/usr/bin/cc -D_GNU_SOURCE  -fPIE   -o CMakeFiles/cmTC_d422f.dir/CheckSymbolExists.c.o   -c /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_d422f
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d422f.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_d422f.dir/CheckSymbolExists.c.o  -o cmTC_d422f -lm 
+make[1]: Leaving directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+
+File /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <math.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef INFINITY
+  return ((int*)(&INFINITY))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the isinf exist passed with the following output:
+Change Dir: /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_e285a/fast"
+/usr/bin/make -f CMakeFiles/cmTC_e285a.dir/build.make CMakeFiles/cmTC_e285a.dir/build
+make[1]: Entering directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_e285a.dir/CheckSymbolExists.c.o
+/usr/bin/cc -D_GNU_SOURCE  -fPIE   -o CMakeFiles/cmTC_e285a.dir/CheckSymbolExists.c.o   -c /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_e285a
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e285a.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_e285a.dir/CheckSymbolExists.c.o  -o cmTC_e285a -lm 
+make[1]: Leaving directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+
+File /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <math.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef isinf
+  return ((int*)(&isinf))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the isnan exist passed with the following output:
+Change Dir: /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_4b6af/fast"
+/usr/bin/make -f CMakeFiles/cmTC_4b6af.dir/build.make CMakeFiles/cmTC_4b6af.dir/build
+make[1]: Entering directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_4b6af.dir/CheckSymbolExists.c.o
+/usr/bin/cc -D_GNU_SOURCE  -fPIE   -o CMakeFiles/cmTC_4b6af.dir/CheckSymbolExists.c.o   -c /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_4b6af
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4b6af.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_4b6af.dir/CheckSymbolExists.c.o  -o cmTC_4b6af -lm 
+make[1]: Leaving directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+
+File /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <math.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef isnan
+  return ((int*)(&isnan))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the nan exist passed with the following output:
+Change Dir: /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_06fd7/fast"
+/usr/bin/make -f CMakeFiles/cmTC_06fd7.dir/build.make CMakeFiles/cmTC_06fd7.dir/build
+make[1]: Entering directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_06fd7.dir/CheckSymbolExists.c.o
+/usr/bin/cc -D_GNU_SOURCE  -fPIE   -o CMakeFiles/cmTC_06fd7.dir/CheckSymbolExists.c.o   -c /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_06fd7
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_06fd7.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_06fd7.dir/CheckSymbolExists.c.o  -o cmTC_06fd7 -lm 
+make[1]: Leaving directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+
+File /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <math.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef nan
+  return ((int*)(&nan))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the snprintf exist passed with the following output:
+Change Dir: /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_bab96/fast"
+/usr/bin/make -f CMakeFiles/cmTC_bab96.dir/build.make CMakeFiles/cmTC_bab96.dir/build
+make[1]: Entering directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_bab96.dir/CheckSymbolExists.c.o
+/usr/bin/cc -D_GNU_SOURCE  -fPIE   -o CMakeFiles/cmTC_bab96.dir/CheckSymbolExists.c.o   -c /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_bab96
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_bab96.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_bab96.dir/CheckSymbolExists.c.o  -o cmTC_bab96 -lm 
+make[1]: Leaving directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+
+File /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdio.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef snprintf
+  return ((int*)(&snprintf))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the vasprintf exist passed with the following output:
+Change Dir: /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_ffae7/fast"
+/usr/bin/make -f CMakeFiles/cmTC_ffae7.dir/build.make CMakeFiles/cmTC_ffae7.dir/build
+make[1]: Entering directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_ffae7.dir/CheckSymbolExists.c.o
+/usr/bin/cc -D_GNU_SOURCE  -fPIE   -o CMakeFiles/cmTC_ffae7.dir/CheckSymbolExists.c.o   -c /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_ffae7
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ffae7.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_ffae7.dir/CheckSymbolExists.c.o  -o cmTC_ffae7 -lm 
+make[1]: Leaving directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+
+File /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdio.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef vasprintf
+  return ((int*)(&vasprintf))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the vsnprintf exist passed with the following output:
+Change Dir: /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_eb26a/fast"
+/usr/bin/make -f CMakeFiles/cmTC_eb26a.dir/build.make CMakeFiles/cmTC_eb26a.dir/build
+make[1]: Entering directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_eb26a.dir/CheckSymbolExists.c.o
+/usr/bin/cc -D_GNU_SOURCE  -fPIE   -o CMakeFiles/cmTC_eb26a.dir/CheckSymbolExists.c.o   -c /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_eb26a
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_eb26a.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_eb26a.dir/CheckSymbolExists.c.o  -o cmTC_eb26a -lm 
+make[1]: Leaving directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+
+File /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdio.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef vsnprintf
+  return ((int*)(&vsnprintf))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the vprintf exist passed with the following output:
+Change Dir: /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_babe4/fast"
+/usr/bin/make -f CMakeFiles/cmTC_babe4.dir/build.make CMakeFiles/cmTC_babe4.dir/build
+make[1]: Entering directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_babe4.dir/CheckSymbolExists.c.o
+/usr/bin/cc -D_GNU_SOURCE  -fPIE   -o CMakeFiles/cmTC_babe4.dir/CheckSymbolExists.c.o   -c /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_babe4
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_babe4.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_babe4.dir/CheckSymbolExists.c.o  -o cmTC_babe4 -lm 
+make[1]: Leaving directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+
+File /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdio.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef vprintf
+  return ((int*)(&vprintf))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the open exist passed with the following output:
+Change Dir: /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_23afb/fast"
+/usr/bin/make -f CMakeFiles/cmTC_23afb.dir/build.make CMakeFiles/cmTC_23afb.dir/build
+make[1]: Entering directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_23afb.dir/CheckSymbolExists.c.o
+/usr/bin/cc -D_GNU_SOURCE  -fPIE   -o CMakeFiles/cmTC_23afb.dir/CheckSymbolExists.c.o   -c /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_23afb
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_23afb.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_23afb.dir/CheckSymbolExists.c.o  -o cmTC_23afb -lm 
+make[1]: Leaving directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+
+File /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <fcntl.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef open
+  return ((int*)(&open))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the realloc exist passed with the following output:
+Change Dir: /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_f2e7d/fast"
+/usr/bin/make -f CMakeFiles/cmTC_f2e7d.dir/build.make CMakeFiles/cmTC_f2e7d.dir/build
+make[1]: Entering directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f2e7d.dir/CheckSymbolExists.c.o
+/usr/bin/cc -D_GNU_SOURCE  -fPIE   -o CMakeFiles/cmTC_f2e7d.dir/CheckSymbolExists.c.o   -c /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_f2e7d
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f2e7d.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_f2e7d.dir/CheckSymbolExists.c.o  -o cmTC_f2e7d -lm 
+make[1]: Leaving directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+
+File /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdlib.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef realloc
+  return ((int*)(&realloc))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the setlocale exist passed with the following output:
+Change Dir: /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_a09ac/fast"
+/usr/bin/make -f CMakeFiles/cmTC_a09ac.dir/build.make CMakeFiles/cmTC_a09ac.dir/build
+make[1]: Entering directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_a09ac.dir/CheckSymbolExists.c.o
+/usr/bin/cc -D_GNU_SOURCE  -fPIE   -o CMakeFiles/cmTC_a09ac.dir/CheckSymbolExists.c.o   -c /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_a09ac
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a09ac.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_a09ac.dir/CheckSymbolExists.c.o  -o cmTC_a09ac -lm 
+make[1]: Leaving directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+
+File /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <locale.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef setlocale
+  return ((int*)(&setlocale))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the uselocale exist passed with the following output:
+Change Dir: /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_ea206/fast"
+/usr/bin/make -f CMakeFiles/cmTC_ea206.dir/build.make CMakeFiles/cmTC_ea206.dir/build
+make[1]: Entering directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_ea206.dir/CheckSymbolExists.c.o
+/usr/bin/cc -D_GNU_SOURCE  -fPIE   -o CMakeFiles/cmTC_ea206.dir/CheckSymbolExists.c.o   -c /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_ea206
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ea206.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_ea206.dir/CheckSymbolExists.c.o  -o cmTC_ea206 -lm 
+make[1]: Leaving directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+
+File /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <locale.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef uselocale
+  return ((int*)(&uselocale))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the strcasecmp exist passed with the following output:
+Change Dir: /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_9a23e/fast"
+/usr/bin/make -f CMakeFiles/cmTC_9a23e.dir/build.make CMakeFiles/cmTC_9a23e.dir/build
+make[1]: Entering directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_9a23e.dir/CheckSymbolExists.c.o
+/usr/bin/cc -D_GNU_SOURCE  -fPIE   -o CMakeFiles/cmTC_9a23e.dir/CheckSymbolExists.c.o   -c /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_9a23e
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9a23e.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_9a23e.dir/CheckSymbolExists.c.o  -o cmTC_9a23e -lm 
+make[1]: Leaving directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+
+File /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <strings.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef strcasecmp
+  return ((int*)(&strcasecmp))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the strncasecmp exist passed with the following output:
+Change Dir: /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_d30f1/fast"
+/usr/bin/make -f CMakeFiles/cmTC_d30f1.dir/build.make CMakeFiles/cmTC_d30f1.dir/build
+make[1]: Entering directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_d30f1.dir/CheckSymbolExists.c.o
+/usr/bin/cc -D_GNU_SOURCE  -fPIE   -o CMakeFiles/cmTC_d30f1.dir/CheckSymbolExists.c.o   -c /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_d30f1
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d30f1.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_d30f1.dir/CheckSymbolExists.c.o  -o cmTC_d30f1 -lm 
+make[1]: Leaving directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+
+File /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <strings.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef strncasecmp
+  return ((int*)(&strncasecmp))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the strdup exist passed with the following output:
+Change Dir: /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_27889/fast"
+/usr/bin/make -f CMakeFiles/cmTC_27889.dir/build.make CMakeFiles/cmTC_27889.dir/build
+make[1]: Entering directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_27889.dir/CheckSymbolExists.c.o
+/usr/bin/cc -D_GNU_SOURCE  -fPIE   -o CMakeFiles/cmTC_27889.dir/CheckSymbolExists.c.o   -c /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_27889
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_27889.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_27889.dir/CheckSymbolExists.c.o  -o cmTC_27889 -lm 
+make[1]: Leaving directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+
+File /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <string.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef strdup
+  return ((int*)(&strdup))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the strerror exist passed with the following output:
+Change Dir: /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_55630/fast"
+/usr/bin/make -f CMakeFiles/cmTC_55630.dir/build.make CMakeFiles/cmTC_55630.dir/build
+make[1]: Entering directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_55630.dir/CheckSymbolExists.c.o
+/usr/bin/cc -D_GNU_SOURCE  -fPIE   -o CMakeFiles/cmTC_55630.dir/CheckSymbolExists.c.o   -c /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_55630
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_55630.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_55630.dir/CheckSymbolExists.c.o  -o cmTC_55630 -lm 
+make[1]: Leaving directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+
+File /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <string.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef strerror
+  return ((int*)(&strerror))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the vsyslog exist passed with the following output:
+Change Dir: /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_b463a/fast"
+/usr/bin/make -f CMakeFiles/cmTC_b463a.dir/build.make CMakeFiles/cmTC_b463a.dir/build
+make[1]: Entering directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_b463a.dir/CheckSymbolExists.c.o
+/usr/bin/cc -D_GNU_SOURCE  -fPIE   -o CMakeFiles/cmTC_b463a.dir/CheckSymbolExists.c.o   -c /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_b463a
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b463a.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_b463a.dir/CheckSymbolExists.c.o  -o cmTC_b463a -lm 
+make[1]: Leaving directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+
+File /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <syslog.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef vsyslog
+  return ((int*)(&vsyslog))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the getrandom exist passed with the following output:
+Change Dir: /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_9cd99/fast"
+/usr/bin/make -f CMakeFiles/cmTC_9cd99.dir/build.make CMakeFiles/cmTC_9cd99.dir/build
+make[1]: Entering directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_9cd99.dir/CheckSymbolExists.c.o
+/usr/bin/cc -D_GNU_SOURCE  -fPIE   -o CMakeFiles/cmTC_9cd99.dir/CheckSymbolExists.c.o   -c /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_9cd99
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9cd99.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_9cd99.dir/CheckSymbolExists.c.o  -o cmTC_9cd99 -lm 
+make[1]: Leaving directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+
+File /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <sys/random.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef getrandom
+  return ((int*)(&getrandom))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the getrusage exist passed with the following output:
+Change Dir: /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_81a4b/fast"
+/usr/bin/make -f CMakeFiles/cmTC_81a4b.dir/build.make CMakeFiles/cmTC_81a4b.dir/build
+make[1]: Entering directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_81a4b.dir/CheckSymbolExists.c.o
+/usr/bin/cc -D_GNU_SOURCE  -fPIE   -o CMakeFiles/cmTC_81a4b.dir/CheckSymbolExists.c.o   -c /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_81a4b
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_81a4b.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_81a4b.dir/CheckSymbolExists.c.o  -o cmTC_81a4b -lm 
+make[1]: Leaving directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+
+File /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <sys/resource.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef getrusage
+  return ((int*)(&getrusage))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the strtoll exist passed with the following output:
+Change Dir: /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_02a8e/fast"
+/usr/bin/make -f CMakeFiles/cmTC_02a8e.dir/build.make CMakeFiles/cmTC_02a8e.dir/build
+make[1]: Entering directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_02a8e.dir/CheckSymbolExists.c.o
+/usr/bin/cc -D_GNU_SOURCE  -fPIE   -o CMakeFiles/cmTC_02a8e.dir/CheckSymbolExists.c.o   -c /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_02a8e
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_02a8e.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_02a8e.dir/CheckSymbolExists.c.o  -o cmTC_02a8e -lm 
+make[1]: Leaving directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+
+File /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdlib.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef strtoll
+  return ((int*)(&strtoll))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the strtoull exist passed with the following output:
+Change Dir: /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_65fba/fast"
+/usr/bin/make -f CMakeFiles/cmTC_65fba.dir/build.make CMakeFiles/cmTC_65fba.dir/build
+make[1]: Entering directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_65fba.dir/CheckSymbolExists.c.o
+/usr/bin/cc -D_GNU_SOURCE  -fPIE   -o CMakeFiles/cmTC_65fba.dir/CheckSymbolExists.c.o   -c /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_65fba
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_65fba.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_65fba.dir/CheckSymbolExists.c.o  -o cmTC_65fba -lm 
+make[1]: Leaving directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+
+File /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdlib.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef strtoull
+  return ((int*)(&strtoull))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the include file stddef.h exists passed with the following output:
+Change Dir: /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_47e0e/fast"
+/usr/bin/make -f CMakeFiles/cmTC_47e0e.dir/build.make CMakeFiles/cmTC_47e0e.dir/build
+make[1]: Entering directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_47e0e.dir/CheckIncludeFile.c.o
+/usr/bin/cc -D_GNU_SOURCE  -fPIE   -o CMakeFiles/cmTC_47e0e.dir/CheckIncludeFile.c.o   -c /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_47e0e
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_47e0e.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_47e0e.dir/CheckIncludeFile.c.o  -o cmTC_47e0e 
+make[1]: Leaving directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+
+
+Determining size of int passed with the following output:
+Change Dir: /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_96667/fast"
+/usr/bin/make -f CMakeFiles/cmTC_96667.dir/build.make CMakeFiles/cmTC_96667.dir/build
+make[1]: Entering directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_96667.dir/SIZEOF_INT.c.o
+/usr/bin/cc -D_GNU_SOURCE  -fPIE   -o CMakeFiles/cmTC_96667.dir/SIZEOF_INT.c.o   -c /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CheckTypeSize/SIZEOF_INT.c
+Linking C executable cmTC_96667
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_96667.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_96667.dir/SIZEOF_INT.c.o  -o cmTC_96667 -lm 
+make[1]: Leaving directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+
+
+Determining size of int64_t passed with the following output:
+Change Dir: /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_9675e/fast"
+/usr/bin/make -f CMakeFiles/cmTC_9675e.dir/build.make CMakeFiles/cmTC_9675e.dir/build
+make[1]: Entering directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_9675e.dir/SIZEOF_INT64_T.c.o
+/usr/bin/cc -D_GNU_SOURCE  -fPIE   -o CMakeFiles/cmTC_9675e.dir/SIZEOF_INT64_T.c.o   -c /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CheckTypeSize/SIZEOF_INT64_T.c
+Linking C executable cmTC_9675e
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9675e.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_9675e.dir/SIZEOF_INT64_T.c.o  -o cmTC_9675e -lm 
+make[1]: Leaving directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+
+
+Determining size of long passed with the following output:
+Change Dir: /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_e0de0/fast"
+/usr/bin/make -f CMakeFiles/cmTC_e0de0.dir/build.make CMakeFiles/cmTC_e0de0.dir/build
+make[1]: Entering directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_e0de0.dir/SIZEOF_LONG.c.o
+/usr/bin/cc -D_GNU_SOURCE  -fPIE   -o CMakeFiles/cmTC_e0de0.dir/SIZEOF_LONG.c.o   -c /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CheckTypeSize/SIZEOF_LONG.c
+Linking C executable cmTC_e0de0
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e0de0.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_e0de0.dir/SIZEOF_LONG.c.o  -o cmTC_e0de0 -lm 
+make[1]: Leaving directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+
+
+Determining size of long long passed with the following output:
+Change Dir: /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_a690a/fast"
+/usr/bin/make -f CMakeFiles/cmTC_a690a.dir/build.make CMakeFiles/cmTC_a690a.dir/build
+make[1]: Entering directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_a690a.dir/SIZEOF_LONG_LONG.c.o
+/usr/bin/cc -D_GNU_SOURCE  -fPIE   -o CMakeFiles/cmTC_a690a.dir/SIZEOF_LONG_LONG.c.o   -c /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CheckTypeSize/SIZEOF_LONG_LONG.c
+Linking C executable cmTC_a690a
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a690a.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_a690a.dir/SIZEOF_LONG_LONG.c.o  -o cmTC_a690a -lm 
+make[1]: Leaving directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+
+
+Determining size of size_t passed with the following output:
+Change Dir: /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_9b2ef/fast"
+/usr/bin/make -f CMakeFiles/cmTC_9b2ef.dir/build.make CMakeFiles/cmTC_9b2ef.dir/build
+make[1]: Entering directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_9b2ef.dir/SIZEOF_SIZE_T.c.o
+/usr/bin/cc -D_GNU_SOURCE  -fPIE   -o CMakeFiles/cmTC_9b2ef.dir/SIZEOF_SIZE_T.c.o   -c /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CheckTypeSize/SIZEOF_SIZE_T.c
+Linking C executable cmTC_9b2ef
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9b2ef.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_9b2ef.dir/SIZEOF_SIZE_T.c.o  -o cmTC_9b2ef -lm 
+make[1]: Leaving directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+
+
+Determining size of ssize_t passed with the following output:
+Change Dir: /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_de450/fast"
+/usr/bin/make -f CMakeFiles/cmTC_de450.dir/build.make CMakeFiles/cmTC_de450.dir/build
+make[1]: Entering directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_de450.dir/SIZEOF_SSIZE_T.c.o
+/usr/bin/cc -D_GNU_SOURCE  -fPIE   -o CMakeFiles/cmTC_de450.dir/SIZEOF_SSIZE_T.c.o   -c /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CheckTypeSize/SIZEOF_SSIZE_T.c
+Linking C executable cmTC_de450
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_de450.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_de450.dir/SIZEOF_SSIZE_T.c.o  -o cmTC_de450 -lm 
+make[1]: Leaving directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+
+
+Performing C SOURCE FILE Test HAVE_ATOMIC_BUILTINS succeeded with the following output:
+Change Dir: /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_d7954/fast"
+/usr/bin/make -f CMakeFiles/cmTC_d7954.dir/build.make CMakeFiles/cmTC_d7954.dir/build
+make[1]: Entering directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_d7954.dir/src.c.o
+/usr/bin/cc -D_GNU_SOURCE  -DHAVE_ATOMIC_BUILTINS -fPIE   -o CMakeFiles/cmTC_d7954.dir/src.c.o   -c /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_d7954
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d7954.dir/link.txt --verbose=1
+/usr/bin/cc  -DHAVE_ATOMIC_BUILTINS    -rdynamic CMakeFiles/cmTC_d7954.dir/src.c.o  -o cmTC_d7954 -lm 
+make[1]: Leaving directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main() { int i, x = 0; i = __sync_add_and_fetch(&x,1); return x; }
+Performing C SOURCE FILE Test HAVE___THREAD succeeded with the following output:
+Change Dir: /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_5dc5c/fast"
+/usr/bin/make -f CMakeFiles/cmTC_5dc5c.dir/build.make CMakeFiles/cmTC_5dc5c.dir/build
+make[1]: Entering directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_5dc5c.dir/src.c.o
+/usr/bin/cc -D_GNU_SOURCE  -DHAVE___THREAD -fPIE   -o CMakeFiles/cmTC_5dc5c.dir/src.c.o   -c /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_5dc5c
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5dc5c.dir/link.txt --verbose=1
+/usr/bin/cc  -DHAVE___THREAD    -rdynamic CMakeFiles/cmTC_5dc5c.dir/src.c.o  -o cmTC_5dc5c -lm 
+make[1]: Leaving directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+
+Source file was:
+__thread int x = 0; int main() { return 0; }
+Performing C SOURCE FILE Test REENTRANT_WORKS succeeded with the following output:
+Change Dir: /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_4fed5/fast"
+/usr/bin/make -f CMakeFiles/cmTC_4fed5.dir/build.make CMakeFiles/cmTC_4fed5.dir/build
+make[1]: Entering directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_4fed5.dir/src.c.o
+/usr/bin/cc -D_GNU_SOURCE  -ffunction-sections -fdata-sections -Werror -Wall -Wcast-qual -Wno-error=deprecated-declarations -Wextra -Wwrite-strings -Wno-unused-parameter -Wstrict-prototypes -DREENTRANT_WORKS -fPIE   -o CMakeFiles/cmTC_4fed5.dir/src.c.o   -c /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_4fed5
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4fed5.dir/link.txt --verbose=1
+/usr/bin/cc  -ffunction-sections -fdata-sections -Werror -Wall -Wcast-qual -Wno-error=deprecated-declarations -Wextra -Wwrite-strings -Wno-unused-parameter -Wstrict-prototypes -DREENTRANT_WORKS    -rdynamic CMakeFiles/cmTC_4fed5.dir/src.c.o  -o cmTC_4fed5 -lm 
+make[1]: Leaving directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+	/* uClibc toolchains without threading barf when _REENTRANT is defined */
+	#define _REENTRANT 1
+	#include <sys/types.h>
+	int main (void)
+	{
+	  return 0;
+	}
+	
+Performing C SOURCE FILE Test BSYMBOLIC_WORKS succeeded with the following output:
+Change Dir: /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_552e6/fast"
+/usr/bin/make -f CMakeFiles/cmTC_552e6.dir/build.make CMakeFiles/cmTC_552e6.dir/build
+make[1]: Entering directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_552e6.dir/src.c.o
+/usr/bin/cc -D_GNU_SOURCE  -ffunction-sections -fdata-sections -Werror -Wall -Wcast-qual -Wno-error=deprecated-declarations -Wextra -Wwrite-strings -Wno-unused-parameter -Wstrict-prototypes -DBSYMBOLIC_WORKS -fPIE   -o CMakeFiles/cmTC_552e6.dir/src.c.o   -c /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_552e6
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_552e6.dir/link.txt --verbose=1
+/usr/bin/cc  -ffunction-sections -fdata-sections -Werror -Wall -Wcast-qual -Wno-error=deprecated-declarations -Wextra -Wwrite-strings -Wno-unused-parameter -Wstrict-prototypes -DBSYMBOLIC_WORKS    -rdynamic CMakeFiles/cmTC_552e6.dir/src.c.o  -o cmTC_552e6 -lm -Wl,-Bsymbolic-functions 
+make[1]: Leaving directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+	int main (void)
+	{
+	  return 0;
+	}
+	
+Performing C SOURCE FILE Test VERSION_SCRIPT_WORKS succeeded with the following output:
+Change Dir: /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_16bc2/fast"
+/usr/bin/make -f CMakeFiles/cmTC_16bc2.dir/build.make CMakeFiles/cmTC_16bc2.dir/build
+make[1]: Entering directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_16bc2.dir/src.c.o
+/usr/bin/cc -D_GNU_SOURCE  -ffunction-sections -fdata-sections -Werror -Wall -Wcast-qual -Wno-error=deprecated-declarations -Wextra -Wwrite-strings -Wno-unused-parameter -Wstrict-prototypes -DVERSION_SCRIPT_WORKS -fPIE   -o CMakeFiles/cmTC_16bc2.dir/src.c.o   -c /volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_16bc2
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_16bc2.dir/link.txt --verbose=1
+/usr/bin/cc  -ffunction-sections -fdata-sections -Werror -Wall -Wcast-qual -Wno-error=deprecated-declarations -Wextra -Wwrite-strings -Wno-unused-parameter -Wstrict-prototypes -DVERSION_SCRIPT_WORKS    -rdynamic CMakeFiles/cmTC_16bc2.dir/src.c.o  -o cmTC_16bc2 -lm -Wl,--version-script,/volume/sgx-project/hello-enclave/json-c-build/check-version-script.sym 
+make[1]: Leaving directory '/volume/sgx-project/hello-enclave/json-c-build/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+	int main (void)
+	{
+	  return 0;
+	}
+	
