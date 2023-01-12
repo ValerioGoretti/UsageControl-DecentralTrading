@@ -62,7 +62,7 @@ typedef struct ms_get_geo_location_t {
 } ms_get_geo_location_t;
 
 typedef struct ms_get_time_t {
-	char* ms_time;
+	int* ms_time;
 	size_t ms_length;
 } ms_get_time_t;
 
@@ -561,7 +561,7 @@ sgx_status_t SGX_CDECL get_geo_location(char* str, size_t length)
 	return status;
 }
 
-sgx_status_t SGX_CDECL get_time(char* time, size_t length)
+sgx_status_t SGX_CDECL get_time(int* time, size_t length)
 {
 	sgx_status_t status = SGX_SUCCESS;
 	size_t _len_time = length;
@@ -587,7 +587,7 @@ sgx_status_t SGX_CDECL get_time(char* time, size_t length)
 	ocalloc_size -= sizeof(ms_get_time_t);
 
 	if (time != NULL) {
-		if (memcpy_verw_s(&ms->ms_time, sizeof(char*), &__tmp, sizeof(char*))) {
+		if (memcpy_verw_s(&ms->ms_time, sizeof(int*), &__tmp, sizeof(int*))) {
 			sgx_ocfree();
 			return SGX_ERROR_UNEXPECTED;
 		}

@@ -28,7 +28,7 @@ void SGX_UBRIDGE(SGX_NOCONVENTION, get_geo_location, (char* str, size_t length))
 #endif
 #ifndef GET_TIME_DEFINED__
 #define GET_TIME_DEFINED__
-void SGX_UBRIDGE(SGX_NOCONVENTION, get_time, (char* time, size_t length));
+void SGX_UBRIDGE(SGX_NOCONVENTION, get_time, (int* time, size_t length));
 #endif
 #ifndef U_SGXPROTECTEDFS_EXCLUSIVE_FILE_OPEN_DEFINED__
 #define U_SGXPROTECTEDFS_EXCLUSIVE_FILE_OPEN_DEFINED__

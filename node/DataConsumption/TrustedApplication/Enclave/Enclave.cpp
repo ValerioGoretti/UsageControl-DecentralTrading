@@ -71,38 +71,50 @@ int32_t ecall_file_delete(char* filename)
 ===================== ENFORCEMENT =====================
 */
 
-int enforce_geographical(){
+
+bool enforce_geographical(){
     char loc[128];
     size_t length;
-
     get_geo_location(loc, sizeof(loc));
-    return 0;
+	return strcmp(loc,"IT")==0;
+
 }
+
+
 
 int enforce_domain(){
     return 0;
 }
 
+
 int enforce_access_counter(){
     return 0;
 }
 
-int enforce_temporal(){
+bool enforce_temporal(){
     char tm[128];
-    size_t length;
-
-    get_time(tm, sizeof(tm));
+	int a;
+    get_time(&a, sizeof(a));
+	snprintf(tm,128,"%d",a);
+	ocall_print(tm);
     return 0;
 }
 
+
 SGX_FILE* access_protected_resource(const char* pub_k, const char* encr_pubk,int* id_res){
-    ocall_print("----");
-    ocall_print("ciao");
-    ocall_print("----");
-	const char* filename = "SGX_File_Protection_System.txt";
+	const char* usage_policies_filename = "Usage_Policies.txt";
+	const char* usage_logs_filename = "Usage_Logs.txt";
 	const char* mode = "w+";
-	SGX_FILE* a = sgx_fopen_auto_key(filename, mode);
-    return a;
+
+	SGX_FILE*  usage_policies =sgx_fopen_auto_key(usage_policies_filename, mode);
+	SGX_FILE* usage_logs =sgx_fopen_auto_key(usage_logs_filename, mode);
+	if(!enforce_geographical()) {ocall_print("Geographical position not allowed");return NULL;}
+
+	enforce_temporal();
+	//enforce_domain();
+	//enforce_access_counter();
+
+
+
+	return usage_policies;
 }
-
-

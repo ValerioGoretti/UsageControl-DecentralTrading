@@ -36,7 +36,7 @@ typedef struct ms_get_geo_location_t {
 } ms_get_geo_location_t;
 
 typedef struct ms_get_time_t {
-	char* ms_time;
+	int* ms_time;
 	size_t ms_length;
 } ms_get_time_t;
 
