@@ -75,7 +75,8 @@ bool enforce_geographical(){
     char loc[128];
     size_t length;
     get_geo_location(loc, sizeof(loc));
-	return strcmp(loc,"IT")==0;
+	char* country_constraint="IT";
+	return strcmp(loc,country_constraint)==0;
 }
 
 
@@ -95,7 +96,11 @@ bool enforce_temporal(){
     get_time(&a, sizeof(a));
 	snprintf(tm,128,"%d",a);
 	ocall_print(tm);
-	return a<0;
+
+
+	int retrieval_timestamp=0;
+	int max_duration=0;
+	return retrieval_timestamp+max_duration>a;
 }
 
 SGX_FILE* access_protected_resource(const char* pub_k, const char* encr_pubk,int* id_res){
