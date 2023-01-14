@@ -103,7 +103,7 @@ bool enforce_temporal(){
 	return retrieval_timestamp+max_duration>a;
 }
 
-char* read_protected_file(const char* filename, char* content){
+char* read_protected_file(const char* filename){
 
 	SGX_FILE* file=sgx_fopen_auto_key(filename,"r+");
 	char buffer[100];
@@ -112,13 +112,13 @@ char* read_protected_file(const char* filename, char* content){
 	}
 	size_t size = sgx_fread(buffer, 1, sizeof(buffer), file);
     if (size == 0) {
-        ocall_print("Error reading file.\n");
-        
+        ocall_print("Error reading file.\n");  
     }
-	sgx_fclose(file);
-	strncpy (content, buffer, 100);
 	ocall_print(buffer);
-	return content;
+	char *result =(char* ) malloc (size);
+  	strncpy (result, buffer, 100);
+	sgx_fclose(file);
+	return result;
 }
 
 SGX_FILE* access_protected_resource(const char* pub_k, const char* encr_pubk,int* id_res){
@@ -127,9 +127,7 @@ SGX_FILE* access_protected_resource(const char* pub_k, const char* encr_pubk,int
 	if(!enforce_temporal()) {ocall_print("Temporal rule not fulfilled.");}
 	//enforce_domain();
 	//enforce_access_counter();
-
-	char buffer;
-	char* value=read_protected_file("Usage_Policies.txt",&buffer);
+	char* value=read_protected_file("Usage_Policies.txt");
 	//char content[]="Hello, world!";
 //	size_t size2 = sgx_fwrite(content, 1, sizeof(content), usage_policies);
 
