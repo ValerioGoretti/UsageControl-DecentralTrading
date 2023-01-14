@@ -103,21 +103,45 @@ bool enforce_temporal(){
 	return retrieval_timestamp+max_duration>a;
 }
 
+char* read_protected_file(const char* filename, char* content){
+
+	SGX_FILE* file=sgx_fopen_auto_key(filename,"r+");
+	char buffer[100];
+	if (file == NULL) {
+	ocall_print("Error opening file.\n");
+	}
+	size_t size = sgx_fread(buffer, 1, sizeof(buffer), file);
+    if (size == 0) {
+        ocall_print("Error reading file.\n");
+        
+    }
+	sgx_fclose(file);
+	strncpy (content, buffer, 100);
+	ocall_print(buffer);
+	return content;
+}
+
 SGX_FILE* access_protected_resource(const char* pub_k, const char* encr_pubk,int* id_res){
 
-
-	const char* usage_policies_filename = "Usage_Policies.txt";
-	const char* usage_logs_filename = "Usage_Logs.txt";
-	const char* mode = "w+";
-	SGX_FILE*  usage_policies =sgx_fopen_auto_key(usage_policies_filename, mode);
-	SGX_FILE* usage_logs =sgx_fopen_auto_key(usage_logs_filename, mode);
-
-	if(!enforce_geographical()) {ocall_print("Geographical rule not fulfilled.");return NULL;}
-	if(!enforce_temporal()) {ocall_print("Temporal rule not fulfilled.");return NULL;}
+	if(!enforce_geographical()) {ocall_print("Geographical rule not fulfilled.");}
+	if(!enforce_temporal()) {ocall_print("Temporal rule not fulfilled.");}
 	//enforce_domain();
 	//enforce_access_counter();
 
+	char buffer;
+	char* value=read_protected_file("Usage_Policies.txt",&buffer);
+	//char content[]="Hello, world!";
+//	size_t size2 = sgx_fwrite(content, 1, sizeof(content), usage_policies);
 
+    // Check if the file was opened successfully
+    // Read the contents of the file into a buffer
+   // size_t size = sgx_fread(buffer, 1, sizeof(buffer), usage_policies);
+  //  if (size == 0) {
+  //      ocall_print("Error reading file.\n");
+  //      return NULL;
+   // }
 
-	return usage_policies;
+    // Print the contents of the buffer
+    ocall_print(value);
+	return NULL;
 }

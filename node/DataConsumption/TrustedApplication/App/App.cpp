@@ -98,10 +98,11 @@ int main(int argc, char const *argv[]) {
     if (status != SGX_SUCCESS) {
         std::cout << "noob" << std::endl;
     }
-
     std::cout << "Disconnessione" << std::endl;
     DIR *d;
     struct dirent *dir;
+
+
     //mainListener();
 
     return 0;
