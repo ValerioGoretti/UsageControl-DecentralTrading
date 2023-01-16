@@ -43,6 +43,7 @@ int mainListener(){
 	zmq_bind(socket, "tcp://*:5555");
 	printf("Start listening \n");
 	while(true){
+				
 		// Wait for a request
 		char buffer[256];
 		zmq_recv(socket, buffer, 256, 0);

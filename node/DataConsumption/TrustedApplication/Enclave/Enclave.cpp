@@ -6,105 +6,58 @@
 #include <string.h>
 #include "sgx_tprotected_fs.h"
 
-/*
-===================== FILE MANAGEMENT =====================
-Leggere bene https://www.intel.com/content/www/us/en/developer/articles/technical/overview-of-intel-protected-file-system-library-using-software-guard-extensions.html 
-per importare INTEL SGX protected file system
 
 
-SGX_FILE* ecall_file_open(const char* filename, const char* mode)
-{
-	SGX_FILE* a;
-	a = sgx_fopen_auto_key(filename, mode);
-	return a;
+bool authenticate_application(const char* pub_k, const char* encr_pubk){
+
+	return true;
 }
 
-size_t ecall_file_write(SGX_FILE* fp, char *data)
-{
-	size_t sizeofWrite;
-	size_t len = strlen(data);
-	sizeofWrite = sgx_fwrite(data, sizeof(char), len, fp);
-
-	for (int i = 0; i < 5; i++)
-	{
-		char buffer[] = { 'x' , 'c' };
-		sizeofWrite += sgx_fwrite(buffer, sizeof(char), sizeof(buffer), fp);
-	}
-
-	return sizeofWrite;
-}
-
-size_t ecall_file_read(SGX_FILE* fp, char* readData)
-{
-	char* data;
-	uint64_t startN = 1;
-	sgx_fseek(fp, 0, SEEK_END);
-	uint64_t finalN = sgx_ftell(fp);
-	sgx_fseek(fp, 0, SEEK_SET);
-
-	data = (char*)malloc(sizeof(char) * finalN);
-	memset(data, 0, sizeof(char) * finalN);
-
-	size_t sizeofRead = sgx_fread(data, startN, finalN, fp);
-	int len = strlen(data);
-	memcpy(readData, data, sizeofRead);
-	return sizeofRead;
-}
-
-int32_t ecall_file_close(SGX_FILE* fp)
-{
-	int32_t a;
-	a = sgx_fclose(fp);
-	return a;
-}
-
-int32_t ecall_file_delete(char* filename)
-{
-	int32_t a;
-	a = sgx_remove(filename);
-	return a;
-}
-*/
-
-/*
-===================== ENFORCEMENT =====================
-*/
-
-
-bool enforce_geographical(){
-    char loc[128];
-    size_t length;
-    get_geo_location(loc, sizeof(loc));
+bool enforce_geographical(const char* usage_policy){
+	//*+parse the usage policy and get the country constraint here.
 	char* country_constraint="IT";
-	return strcmp(loc,country_constraint)==0;
+    char geo_location[128];
+    size_t length;
+    get_geo_location(geo_location, sizeof(geo_location));
+	return strcmp(geo_location,country_constraint)==0;
 }
 
 
-int enforce_domain(){
-    return 0;
+bool enforce_domain(const char* usage_policy,const char* pub_k){
+	//*+retrieve the domain of the application here using the public key
+	char* application_domain="Medical";
+	//*+retrieve the domain of the constraint here from the usage policy
+	char* constraint_domain="Medical";
+    return strcmp(application_domain,constraint_domain)==0;
 }
 
 
-int enforce_access_counter(){
-    return 0;
+bool enforce_access_counter(const char* usage_policy){
+	//*+retrieve the access counter of the application from the usage policy
+	int constraint_access_counter=1;
+	//*+retrieve the access counter from the usage log
+	int access_counter=1;
+
+	return access_counter+1<constraint_access_counter;
+
 }
 
 
-bool enforce_temporal(){
-    char tm[128];
-	int a;
-    get_time(&a, sizeof(a));
-	snprintf(tm,128,"%d",a);
-	ocall_print(tm);
-
-
+bool enforce_temporal(char* usage_policy){
+    char string_now[128];
+	int now;
+    get_time(&now, sizeof(now));
+	//snprintf(string_now,128,"%d",now); to converto the timestamp to a string format for printing
+	//*+parse the usage policy and get the country constraint here.
 	int retrieval_timestamp=0;
+	//*+parse the usage policy and get the country constraint here.
 	int max_duration=0;
-	return retrieval_timestamp+max_duration>a;
+	return retrieval_timestamp+max_duration>now;
 }
+
+
 
 char* read_protected_file(const char* filename){
-
 	SGX_FILE* file=sgx_fopen_auto_key(filename,"r+");
 	char buffer[100];
 	if (file == NULL) {
@@ -121,25 +74,31 @@ char* read_protected_file(const char* filename){
 	return result;
 }
 
+
+
+char* get_policy(){
+	return read_protected_file("Usage_Policies.txt");
+}
+
+
+
+
+
 SGX_FILE* access_protected_resource(const char* pub_k, const char* encr_pubk,int* id_res){
 
-	if(!enforce_geographical()) {ocall_print("Geographical rule not fulfilled.");}
-	if(!enforce_temporal()) {ocall_print("Temporal rule not fulfilled.");}
+	authenticate_application(pub_k, encr_pubk);
+	char* usage_policy=get_policy();
+	ocall_print(usage_policy);
+	//size_t size2 = sgx_fwrite(content, 1, sizeof(content), usage_policies);
+
+	if(!enforce_geographical(usage_policy)) {ocall_print("Geographical rule not fulfilled.");}
+	enforce_domain(usage_policy,pub_k);
+	enforce_access_counter(usage_policy);
+	if(!enforce_temporal(usage_policy)) {ocall_print("Temporal rule not fulfilled.");}
+
 	//enforce_domain();
 	//enforce_access_counter();
-	char* value=read_protected_file("Usage_Policies.txt");
-	//char content[]="Hello, world!";
-//	size_t size2 = sgx_fwrite(content, 1, sizeof(content), usage_policies);
 
-    // Check if the file was opened successfully
-    // Read the contents of the file into a buffer
-   // size_t size = sgx_fread(buffer, 1, sizeof(buffer), usage_policies);
-  //  if (size == 0) {
-  //      ocall_print("Error reading file.\n");
-  //      return NULL;
-   // }
-
-    // Print the contents of the buffer
-    ocall_print(value);
 	return NULL;
+
 }
