@@ -6,10 +6,7 @@
 #include <string.h>
 #include "sgx_tprotected_fs.h"
 
-
-
 bool authenticate_application(const char* pub_k, const char* encr_pubk){
-
 	return true;
 }
 
@@ -22,7 +19,6 @@ bool enforce_geographical(const char* usage_policy){
 	return strcmp(geo_location,country_constraint)==0;
 }
 
-
 bool enforce_domain(const char* usage_policy,const char* pub_k){
 	//*+retrieve the domain of the application here using the public key
 	char* application_domain="Medical";
@@ -31,17 +27,13 @@ bool enforce_domain(const char* usage_policy,const char* pub_k){
     return strcmp(application_domain,constraint_domain)==0;
 }
 
-
 bool enforce_access_counter(const char* usage_policy){
 	//*+retrieve the access counter of the application from the usage policy
 	int constraint_access_counter=1;
 	//*+retrieve the access counter from the usage log
 	int access_counter=1;
-
 	return access_counter+1<constraint_access_counter;
-
 }
-
 
 bool enforce_temporal(char* usage_policy){
     char string_now[128];
@@ -55,11 +47,9 @@ bool enforce_temporal(char* usage_policy){
 	return retrieval_timestamp+max_duration>now;
 }
 
-
-
 char* read_protected_file(const char* filename){
 	SGX_FILE* file=sgx_fopen_auto_key(filename,"r+");
-	char buffer[100];
+	char buffer[256];
 	if (file == NULL) {
 	ocall_print("Error opening file.\n");
 	}
@@ -74,15 +64,47 @@ char* read_protected_file(const char* filename){
 	return result;
 }
 
-
-
 char* get_policy(){
 	return read_protected_file("Usage_Policies.txt");
 }
 
+char * get_usage_log(){
+	return read_protected_file("Usage_Logs.txt");
+}
+
+int read_line(char* policy){
+        char* token;
+
+        token = strtok(policy, "\n");
+        while (token != NULL) {
+                if (strcmp(token," ")!=0)
+                {
+                        ocall_print(token);
+                }
+
+        token = strtok(NULL, "\n");
+        }
+
+        return 0;
+}
 
 
+size_t write_protected_file(const char* filename, char *data){
+	SGX_FILE* file=sgx_fopen_auto_key(filename,"a+");
+	size_t len = strlen(data);
+	if (file == NULL) {
+	ocall_print("Error opening usage policy file.\n");
+	}
+	
+	size_t sizeofWrite = sgx_fwrite(data, sizeof(char), len, file);
 
+    if (sizeofWrite == 0) {
+        ocall_print("Error writing file.\n");  
+    }
+
+	sgx_fclose(file);
+	return sizeofWrite;
+}
 
 SGX_FILE* access_protected_resource(const char* pub_k, const char* encr_pubk,int* id_res){
 
@@ -90,15 +112,12 @@ SGX_FILE* access_protected_resource(const char* pub_k, const char* encr_pubk,int
 	char* usage_policy=get_policy();
 	ocall_print(usage_policy);
 	//size_t size2 = sgx_fwrite(content, 1, sizeof(content), usage_policies);
-
 	if(!enforce_geographical(usage_policy)) {ocall_print("Geographical rule not fulfilled.");}
 	enforce_domain(usage_policy,pub_k);
 	enforce_access_counter(usage_policy);
 	if(!enforce_temporal(usage_policy)) {ocall_print("Temporal rule not fulfilled.");}
-
 	//enforce_domain();
 	//enforce_access_counter();
-
 	return NULL;
 
 }
