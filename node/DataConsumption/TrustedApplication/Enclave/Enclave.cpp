@@ -48,8 +48,8 @@ bool enforce_temporal(char* usage_policy){
 }
 
 char* read_protected_file(const char* filename){
-	SGX_FILE* file=sgx_fopen_auto_key(filename,"r+");
-	char buffer[256];
+	SGX_FILE* file=sgx_fopen_auto_key(filename,"r");
+	char buffer[1024];
 	if (file == NULL) {
 	ocall_print("Error opening file.\n");
 	}
@@ -57,35 +57,32 @@ char* read_protected_file(const char* filename){
     if (size == 0) {
         ocall_print("Error reading file.\n");  
     }
-	ocall_print(buffer);
-	char *result =(char* ) malloc (size);
-  	strncpy (result, buffer, 100);
+	char *result =(char *) malloc (size);
+  	strncpy (result, buffer, size);
 	sgx_fclose(file);
 	return result;
 }
 
-char* get_policy(){
+char* get_policies(){
 	return read_protected_file("Usage_Policies.txt");
+}
+char* search_policy(char* policies,int id){
+        char* token;
+        token = strtok(policies, "\n");
+        while (token != NULL) {
+		//Parse token here
+		ocall_print(token);
+        token = strtok(NULL, "\n");
+        }
+        return NULL;
+}
+char* get_policy(int id){
+	char * policies=get_policies();
+	char*policy=search_policy(policies,id);
 }
 
 char * get_usage_log(){
 	return read_protected_file("Usage_Logs.txt");
-}
-
-int read_line(char* policy){
-        char* token;
-
-        token = strtok(policy, "\n");
-        while (token != NULL) {
-                if (strcmp(token," ")!=0)
-                {
-                        ocall_print(token);
-                }
-
-        token = strtok(NULL, "\n");
-        }
-
-        return 0;
 }
 
 
@@ -108,16 +105,24 @@ size_t write_protected_file(const char* filename, char *data){
 
 SGX_FILE* access_protected_resource(const char* pub_k, const char* encr_pubk,int* id_res){
 
-	authenticate_application(pub_k, encr_pubk);
-	char* usage_policy=get_policy();
-	ocall_print(usage_policy);
-	//size_t size2 = sgx_fwrite(content, 1, sizeof(content), usage_policies);
-	if(!enforce_geographical(usage_policy)) {ocall_print("Geographical rule not fulfilled.");}
-	enforce_domain(usage_policy,pub_k);
-	enforce_access_counter(usage_policy);
-	if(!enforce_temporal(usage_policy)) {ocall_print("Temporal rule not fulfilled.");}
+	//if(!enforce_geographical()) {ocall_print("Geographical rule not fulfilled.");}
+	//if(!enforce_temporal()) {ocall_print("Temporal rule not fulfilled.");}
 	//enforce_domain();
 	//enforce_access_counter();
-	return NULL;
+	char content[]="4,b.txt,FR,15,15,Social\n";
+	char* policies=get_policy(2);
+	//size_t a=write_protected_file("Usage_Policies.txt", content);
+	//read_line(value);
 
+    // Check if the file was opened successfully
+    // Read the contents of the file into a buffer
+   // size_t size = sgx_fread(buffer, 1, sizeof(buffer), usage_policies);
+  //  if (size == 0) {
+  //      ocall_print("Error reading file.\n");
+  //      return NULL;
+   // }
+
+    // Print the contents of the buffer
+    //ocall_print(value);
+	return NULL;
 }
