@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: GPL-3.0
 pragma solidity ^0.8.0;
-import "../Indexing/DTindexing.sol";
+import "../Resource indexing/DTindexing.sol";
 import "../Libraries/Ownable.sol";
 /*
 The smart contract represents and stores obligations rules related to pods and resources.

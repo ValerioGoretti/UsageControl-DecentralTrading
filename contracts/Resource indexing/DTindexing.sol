@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: GPL-3.0
 pragma solidity ^0.8.0;
-import "../Tokens/DTsubscription.sol";
-import "../Policies/DTobligations.sol";
+import "../Tokenization/DTsubscription.sol";
+import "../Policy Governance/DTobligations.sol";
   /*
   The smart contract is part of the Indexing module. The smart contract contains the logic to manage pods and resources'
   metadata. Dara owners and pod managers interact with the DTindexing in order to initialize/deactivate resources.

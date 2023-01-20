@@ -13,7 +13,7 @@ class DTauthenticator():
     Class initializer.
     """
     def __init__(self, *args, **kw):
-        self.w3=Web3(Web3.HTTPProvider('HTTP://127.0.0.1:7545'))
+        self.w3=Web3(Web3.HTTPProvider('HTTP://127.0.0.1:8545'))
     """
     Rounds the given unix epoch of 5 minutes.
     """    
