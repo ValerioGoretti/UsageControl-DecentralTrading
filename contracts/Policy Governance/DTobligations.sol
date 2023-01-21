@@ -2,11 +2,12 @@
 pragma solidity ^0.8.0;
 import "../Resource indexing/DTindexing.sol";
 import "../Libraries/Ownable.sol";
+import "./DTmonitoringOracle.sol";
 /*
 The smart contract represents and stores obligations rules related to pods and resources.
 The architecture of the market supposes that each initialized pod is owner of a 
 */ 
-contract DTobligations is Ownable
+contract DTobligations is Ownable, isUsingDTmonitoringOracle
 {
     /*
     Reference to the DTindexing smart contract
@@ -20,6 +21,10 @@ contract DTobligations is Ownable
     Mapping that associates a pod's resource identifier with the related obligations rule.
     */
     mapping(int=>ObligationRules) resourcesObligation;
+
+    uint monitoringCounter=0;
+
+    MonitoringSession[] sessionList;
     /*
     Mapping that associates a pod's resource identifier with the related obligations rule.
     */
@@ -36,7 +41,6 @@ contract DTobligations is Ownable
         dtIndexing=DTindexing(dtInd);
         transferOwnership(podAddress);
     }
-
 
     /*
     Modifier that checks if the temporal obligation value is valid.
@@ -237,6 +241,19 @@ contract DTobligations is Ownable
     {
         return resourcesObligation[idResource].exists;
     }
+
+    function monitor_compliance(int idResource) isTheResourceCovered(idResource) public{
+        bytes[] memory responses;
+        MonitoringSession memory session = MonitoringSession(idResource, responses);
+        sessionList.push(session);
+        //creditWorthinessOracle.newVerification(orderId,taxId,address(this));
+        monitoringCounter++;
+    }
+
+    function _callback(int idMonitoring,int idResource, bytes memory response) override public{
+
+    }
+
 /*
 Struct the represents obligation rules.
 */
@@ -307,6 +324,8 @@ struct DomainObligation{
     DomainType domain;
     bool exists;
 }
+
+struct MonitoringSession{int idResource;bytes[] responses;}
 
 /*
 Enum for domain types.
