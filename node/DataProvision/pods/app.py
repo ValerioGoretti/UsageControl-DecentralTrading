@@ -137,7 +137,7 @@ class WelcomePage(tk.Frame):
     """
     Transition function to the Pod's view.
     """ 
-    def show_pod_page(self,pod_path="C:\\Users\\david\\Desktop\\DTPod"):
+    def show_pod_page(self,pod_path="C:/Users/david/Desktop/DTPod"):
 
         pod_location = filedialog.askdirectory()
         self.controller.pod_path=pod_location
@@ -220,13 +220,13 @@ class ResourceManagement(tk.Frame):
             
 
         def read_obligations(self):
-            f = open(self.controller.pod_path+"\\DTobligations.json",mode='r')
+            f = open(self.controller.pod_path+"/DTobligations.json",mode='r')
             obligations=json.load(f)
 
             return obligations
         def read_resource_obligations(self):
             try:
-                f = open(self.controller.pod_path+"\\DTobligations.json",mode='r')
+                f = open(self.controller.pod_path+"/DTobligations.json",mode='r')
                 obligations=json.load(f)
                 return obligations[str(self.resource_info['id'])]
             except Exception:
@@ -272,7 +272,7 @@ class ResourceManagement(tk.Frame):
                 resource_obligations={}
             resource_obligations[obligation]=value
             file[str(self.resource_info['id'])]=resource_obligations
-            with open(self.controller.pod_path+"\\DTobligations.json", "w") as outfile:
+            with open(self.controller.pod_path+"/DTobligations.json", "w") as outfile:
                 json.dump(file,outfile)
             return True
         def remove_obligation(self,obligation):
@@ -280,7 +280,7 @@ class ResourceManagement(tk.Frame):
             resource_obligations=file[str(self.resource_id)]
             resource_obligations.pop(obligation)
             file[str(self.resource_info['id'])]=resource_obligations
-            with open(self.controller.pod_path+"\\DTobligations.json", "w") as outfile:
+            with open(self.controller.pod_path+"/DTobligations.json", "w") as outfile:
                 json.dump(file,outfile)
             return True             
         def remove_access_counter_obligation(self):
@@ -337,7 +337,7 @@ class PodManagement(tk.Frame):
             self.initialise_layout()
         else:
             label = tk.Label(self, text="Pod Management",font=controller.title_font)
-            address = tk.Label(self, text="The given path does not contain a DTPod").grid(0,0)
+            address = tk.Label(self, text="The given path does not contain a DTPod").grid(row=0,column=0)
     """
     Sets up the pod management view
     """     
@@ -415,7 +415,10 @@ class PodManagement(tk.Frame):
             tk.Button(initialisesd_reources, text="See resource",
                         command=lambda parameter=r: self.show_resource_page(parameter)).grid(column=2,row=row_counter)
             row_counter=row_counter+1
-        initialisesd_reources.grid(column=1,row=4)
+        start_monitoring=tk.Button(self, text="Start monitoring routine",
+            command=lambda: self.stop_server())
+        start_monitoring.grid(column=1,row=4)
+        initialisesd_reources.grid(column=1,row=5)
     """
     Starts the recording of a new default domain rule for the pod.
     """       
@@ -444,7 +447,7 @@ class PodManagement(tk.Frame):
     Starts the HTTP web service for the pod.
     """ 
     def get_initialised_resources(self):
-        f = open(self.controller.pod_path+"\\DTconfig.json")
+        f = open(self.controller.pod_path+"/DTconfig.json")
         config=json.load(f)
         return config['resources']
     """
@@ -460,7 +463,7 @@ class PodManagement(tk.Frame):
     """ 
     def remove_resource(self,resId):
         self.controller.push_in_indexing.deactivate_resource(resId);
-        f = open(self.controller.pod_path+"\\DTconfig.json")
+        f = open(self.controller.pod_path+"/DTconfig.json")
         config=json.load(f)
         resources=config['resources']
         new_resources=[]
@@ -471,10 +474,10 @@ class PodManagement(tk.Frame):
             else:
                 location=res['location']
         config['resources']=new_resources
-        with open(self.controller.pod_path+"\\DTconfig.json", "w") as outfile:
+        with open(self.controller.pod_path+"/DTconfig.json", "w") as outfile:
             json.dump(config,outfile)
         path_to_remove=self.controller.pod_path+location
-        path_to_remove=path_to_remove.replace("/","\\")
+        path_to_remove=path_to_remove.replace("/","/")
         os.remove(path_to_remove)
         self.initialise_layout()
 
@@ -482,9 +485,9 @@ class PodManagement(tk.Frame):
     Verifies the validity of the DTconfig.json file
     """     
     def validate_path(self,path):
-        config_exist=os.path.exists(path+"\\DTconfig.json")
+        config_exist=os.path.exists(path+"/DTconfig.json")
         if config_exist:
-            f = open(path+"\\DTconfig.json")
+            f = open(path+"/DTconfig.json")
             config=json.load(f)
             self.controller.pod_address=config["address"]
             self.controller.pod_owner=config["owner"]
@@ -505,15 +508,14 @@ class PodManagement(tk.Frame):
     Add a resource in the DTconfig.json file
     """ 
     def add_resource_to_config(self,path,id_resource,location):
-        config_exist=os.path.exists(path+"\\DTconfig.json")
+        config_exist=os.path.exists(path+"/DTconfig.json")
         if config_exist:
-            f = open(path+"\\DTconfig.json",mode='r')
+            f = open(path+"/DTconfig.json",mode='r')
             config=json.load(f)
             print(config['resources'])
             new_resource={'id':id_resource,'location':location}
             config['resources'].append(new_resource)
-            with open(path+"\\DTconfig.json", "w") as outfile:
-            
+            with open(path+"/DTconfig.json", "w") as outfile:
                 json.dump(config,outfile)
             return True
         return False
@@ -526,12 +528,12 @@ class PodManagement(tk.Frame):
         path=fd.askopenfilename(title='Select a resource to initialize')
         destination=fd.askdirectory(title='Select a location internal to the pod location',initialdir=self.controller.pod_path)
         print(destination)
-        if destination.startswith(self.controller.pod_path.replace("\\","/")) and path!='' and destination!='':
+        if destination.startswith(self.controller.pod_path.replace("/","/")) and path!='' and destination!='':
             path_list= path.split("/")
             filename=path_list[len(path_list)-1]
             new_path=destination+"/"+filename
             print(new_path)
-            reference_to_register=new_path.replace(self.controller.pod_path.replace("\\","/"),"")
+            reference_to_register=new_path.replace(self.controller.pod_path.replace("/","/"),"")
             print(reference_to_register)
             shutil.copyfile(path, new_path)
             byte=bytes(reference_to_register, 'utf-8')
@@ -579,7 +581,7 @@ class PodManagement(tk.Frame):
     def write_default_obligations(self,obligation_name,value):
         obligations=self.read_obligations()
         obligations['default'][obligation_name]=value
-        with open(self.controller.pod_path+"\\DTobligations.json", "w") as outfile:
+        with open(self.controller.pod_path+"/DTobligations.json", "w") as outfile:
             json.dump(obligations,outfile)
         return True
     """
@@ -617,7 +619,7 @@ class PodManagement(tk.Frame):
         obligations=self.read_obligations()
         if obligations!=None:
             obligations['default'].pop(obligation_name)
-            with open(self.controller.pod_path+"\\DTobligations.json", "w") as outfile:
+            with open(self.controller.pod_path+"/DTobligations.json", "w") as outfile:
                 json.dump(obligations,outfile)
             return True 
         return False
@@ -626,7 +628,7 @@ class PodManagement(tk.Frame):
     """    
     def read_config_file(self):
         try:
-            f = open(self.controller.pod_path+"\\DTconfig.json",mode='r')
+            f = open(self.controller.pod_path+"/DTconfig.json",mode='r')
             config=json.load(f)
             return config
         except OSError:
@@ -636,7 +638,7 @@ class PodManagement(tk.Frame):
     """ 
     def read_obligations(self):
         try:
-            f = open(self.controller.pod_path+"\\DTobligations.json",mode='r')
+            f = open(self.controller.pod_path+"/DTobligations.json",mode='r')
             obligations=json.load(f)
             return obligations
         except OSError:

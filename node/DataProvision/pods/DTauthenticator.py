@@ -42,6 +42,7 @@ class DTauthenticator():
     Makes use of the unsigned authentication message build according to the requested resource and the acutal rounded unix epoch.
     """    
     def authenticate_signature(self,signature,msg_hash,claim):
+        print(claim,self.w3.eth.account.recover_message(msg_hash, signature=signature))
         return claim==self.w3.eth.account.recover_message(msg_hash, signature=signature)
     """
     Wrapper function to authenticate the signature extracted from a HTTP request.

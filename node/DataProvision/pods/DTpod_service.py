@@ -42,7 +42,8 @@ class DTpod_service(BaseHTTPRequestHandler):
     Can only be internallt invoked by the do_POST() function.
     Deliver the resource in the HTTP response.
     """
-    def do_GET(self,auth_token=None,claim=None,id_subscription=None): 
+    def do_GET(self,auth_token=None,claim=None,id_subscription=None):
+        print("Node: "+claim+" demands resource "+self.path)
         if auth_token==claim==id_subscription==None:
             self.send_error(400, "Bad request")
             return None
@@ -54,7 +55,9 @@ class DTpod_service(BaseHTTPRequestHandler):
             return None
         f = self.send_head()     
         result=f.read()
-        if f:            
+        
+        if f:
+            
             if type(result)==type("a"):
                 self.wfile.write(bytes(result,'utf-8'))
             else:
@@ -82,11 +85,7 @@ class DTpod_service(BaseHTTPRequestHandler):
             except Exception:
                 auth_token=None
                 claim=None
-
         self.do_GET(auth_token,claim,id_subscrption)
-        
-   
-      
     """
     Sets the head of the HTTP response.
     """ 
