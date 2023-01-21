@@ -39,7 +39,5 @@ def authenticate(resource):
     msg_hash=encode_unsigned(resource,str(rounded))
     w3 = Web3(Web3.HTTPProvider('http://localhost:8545'))
     signature = w3.eth.account.sign_message(msg_hash, "fb086b9dc76c5481cc8dc6f644d8e5814fa24dccbbc65d6262b78f3ae5a65170")
-    
-
     print(signature)
 authenticate("/test.py")
