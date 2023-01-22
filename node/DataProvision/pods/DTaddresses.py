@@ -1,7 +1,7 @@
 """
 Address of the DTindexing smart contract.
 """
-DTINDEXING="0x7040B4184AD37A6A060d42A811C8c377840Cd634"
+DTINDEXING="0xcf698AbDc25Cd8090B946512CEea6247cDE1BE34"
 """
 Address of the DTsubscriptions smart contract.
 """
