@@ -49,6 +49,8 @@ class App(tk.Tk):
             self.frames[page_name] = frame
             frame.grid(row=0, column=0, sticky="nsew")
         self.show_frame("WelcomePage")
+        self.protocol("WM_DELETE_WINDOW", lambda: self.end_execution())
+
     """
     Transition function.
     """     
@@ -57,7 +59,10 @@ class App(tk.Tk):
         frame = self.frames[page_name]
         frame.tkraise()
 
-
+    def end_execution(self):
+        self.obligations_oracle.stop_monitoring()
+        self.monitoring_thread.join()
+        self.destroy()
 """
 Class implementing the welcome page of the application.
 Allows users to open a local pod or to create a new one.
@@ -162,7 +167,6 @@ class ResourceManagement(tk.Frame):
             label.grid(column=1,row=0)
             button1 = tk.Button(self, text="Back to the Pod Page",
                                 command=lambda: self.back_to_pod()).grid(column=0,row=1)
-            
             button2 = tk.Button(self, text="Open the resource",
                                 command=lambda: self.controller.show_frame("PodManagement")).grid(column=1,row=1)
             button2 = tk.Button(self, text="Open the resource",command=lambda: self.controller.show_frame("PodManagement")).grid(column=2,row=1)
@@ -185,7 +189,6 @@ class ResourceManagement(tk.Frame):
             submit_access=tk.Button(obligations_frame, text="Submit", command=lambda:self.send_access_counter_obligation(self.resource_id,int(entry_access.get()))).grid(column=3,row=0)
             remove_access=tk.Button(obligations_frame, text="Remove obligation",command=lambda:self.remove_access_counter_obligation()).grid(column=4,row=0)
 
-
         # tk.Frame(se,background="#000000").grid(row=4,column=1)
             tk.Label(obligations_frame, text="Temporal Obligation: "+str(self.read_specific_obligations('temporal'))).grid(column=0,row=1,sticky=W)
             tk.Label(obligations_frame, text="Set").grid(column=1,row=1)
@@ -207,8 +210,6 @@ class ResourceManagement(tk.Frame):
             submit_Domain=tk.Button(obligations_frame, text="Submit",command=lambda: self.submit_domain_button()).grid(column=3,row=2)
             tk.Button(obligations_frame, text="Remove obligation",command=lambda:self.remove_domain_obligation(self.resource_id)).grid(column=4,row=2)
 
-
-            
             tk.Label(obligations_frame, text="Country Obligation: "+str(self.read_specific_obligations('country'))).grid(column=0,row=3,sticky=W)
             tk.Label(obligations_frame, text="Set").grid(column=1,row=3)
             entry_Country = tk.Entry(obligations_frame)
@@ -347,6 +348,8 @@ class PodManagement(tk.Frame):
         obligations=self.read_obligations()
         self.controller.obligations=obligations
         self.controller.obligations_oracle=DTobligation_oracle(self.controller.obligations['address'],self.controller.pod_pk)
+        self.controller.monitoring_thread = Thread(None, self.controller.obligations_oracle.listen_monitoring_response)
+        self.controller.monitoring_thread.start()
         label = tk.Label(self, text="Pod Management ",font=self.controller.title_font)
         label.grid(column=1,row=0)
         information_frame=tk.LabelFrame(self, text="Pod's Information",labelanchor='n',padx=10,pady=10)
