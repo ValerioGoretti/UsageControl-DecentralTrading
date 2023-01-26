@@ -17,11 +17,12 @@
 extern "C" {
 #endif
 
-SGX_FILE* access_protected_resource(const char* pub_k, const char* encr_pubk, int* id_res);
+SGX_FILE* access_protected_resource(const char* pub_k, const char* encr_pubk, int* id_res, char* mode, char* id_resource);
 sgx_status_t seal(uint8_t* plaintext, size_t plaintext_len, sgx_sealed_data_t* sealed_data, size_t sealed_size);
 sgx_status_t unseal(sgx_sealed_data_t* sealed_data, size_t sealed_size, uint8_t* plaintext, uint32_t plaintext_len);
 
 sgx_status_t SGX_CDECL ocall_print(const char* str);
+sgx_status_t SGX_CDECL ocall_print_int(int* num);
 sgx_status_t SGX_CDECL get_geo_location(char* str, size_t length);
 sgx_status_t SGX_CDECL get_time(int* time, size_t length);
 sgx_status_t SGX_CDECL u_sgxprotectedfs_exclusive_file_open(void** retval, const char* filename, uint8_t read_only, int64_t* file_size, int32_t* error_code);

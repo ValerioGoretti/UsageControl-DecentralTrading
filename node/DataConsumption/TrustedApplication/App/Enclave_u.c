@@ -8,6 +8,10 @@ typedef struct ms_access_protected_resource_t {
 	const char* ms_encr_pubk;
 	size_t ms_encr_pubk_len;
 	int* ms_id_res;
+	char* ms_mode;
+	size_t ms_mode_len;
+	char* ms_id_resource;
+	size_t ms_id_resource_len;
 } ms_access_protected_resource_t;
 
 typedef struct ms_seal_t {
@@ -29,6 +33,10 @@ typedef struct ms_unseal_t {
 typedef struct ms_ocall_print_t {
 	const char* ms_str;
 } ms_ocall_print_t;
+
+typedef struct ms_ocall_print_int_t {
+	int* ms_num;
+} ms_ocall_print_int_t;
 
 typedef struct ms_get_geo_location_t {
 	char* ms_str;
@@ -135,6 +143,14 @@ static sgx_status_t SGX_CDECL Enclave_ocall_print(void* pms)
 {
 	ms_ocall_print_t* ms = SGX_CAST(ms_ocall_print_t*, pms);
 	ocall_print(ms->ms_str);
+
+	return SGX_SUCCESS;
+}
+
+static sgx_status_t SGX_CDECL Enclave_ocall_print_int(void* pms)
+{
+	ms_ocall_print_int_t* ms = SGX_CAST(ms_ocall_print_int_t*, pms);
+	ocall_print_int(ms->ms_num);
 
 	return SGX_SUCCESS;
 }
@@ -277,11 +293,12 @@ static sgx_status_t SGX_CDECL Enclave_sgx_thread_set_multiple_untrusted_events_o
 
 static const struct {
 	size_t nr_ocall;
-	void * table[18];
+	void * table[19];
 } ocall_table_Enclave = {
-	18,
+	19,
 	{
 		(void*)Enclave_ocall_print,
+		(void*)Enclave_ocall_print_int,
 		(void*)Enclave_get_geo_location,
 		(void*)Enclave_get_time,
 		(void*)Enclave_u_sgxprotectedfs_exclusive_file_open,
@@ -301,7 +318,7 @@ static const struct {
 		(void*)Enclave_sgx_thread_set_multiple_untrusted_events_ocall,
 	}
 };
-sgx_status_t access_protected_resource(sgx_enclave_id_t eid, SGX_FILE** retval, const char* pub_k, const char* encr_pubk, int* id_res)
+sgx_status_t access_protected_resource(sgx_enclave_id_t eid, SGX_FILE** retval, const char* pub_k, const char* encr_pubk, int* id_res, char* mode, char* id_resource)
 {
 	sgx_status_t status;
 	ms_access_protected_resource_t ms;
@@ -310,6 +327,10 @@ sgx_status_t access_protected_resource(sgx_enclave_id_t eid, SGX_FILE** retval, 
 	ms.ms_encr_pubk = encr_pubk;
 	ms.ms_encr_pubk_len = encr_pubk ? strlen(encr_pubk) + 1 : 0;
 	ms.ms_id_res = id_res;
+	ms.ms_mode = mode;
+	ms.ms_mode_len = mode ? strlen(mode) + 1 : 0;
+	ms.ms_id_resource = id_resource;
+	ms.ms_id_resource_len = id_resource ? strlen(id_resource) + 1 : 0;
 	status = sgx_ecall(eid, 0, &ocall_table_Enclave, &ms);
 	if (status == SGX_SUCCESS && retval) *retval = ms.ms_retval;
 	return status;
