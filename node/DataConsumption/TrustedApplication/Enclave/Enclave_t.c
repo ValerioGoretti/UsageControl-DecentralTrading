@@ -40,6 +40,15 @@ typedef struct ms_access_protected_resource_t {
 	size_t ms_id_resource_len;
 } ms_access_protected_resource_t;
 
+typedef struct ms_new_protected_resource_t {
+	const char* ms_name_file;
+	size_t ms_name_file_len;
+	const char* ms_file_content;
+	size_t ms_file_content_len;
+	const char* ms_policy;
+	size_t ms_policy_len;
+} ms_new_protected_resource_t;
+
 typedef struct ms_seal_t {
 	sgx_status_t ms_retval;
 	uint8_t* ms_plaintext;
@@ -315,6 +324,112 @@ err:
 	return status;
 }
 
+static sgx_status_t SGX_CDECL sgx_new_protected_resource(void* pms)
+{
+	CHECK_REF_POINTER(pms, sizeof(ms_new_protected_resource_t));
+	//
+	// fence after pointer checks
+	//
+	sgx_lfence();
+	ms_new_protected_resource_t* ms = SGX_CAST(ms_new_protected_resource_t*, pms);
+	ms_new_protected_resource_t __in_ms;
+	if (memcpy_s(&__in_ms, sizeof(ms_new_protected_resource_t), ms, sizeof(ms_new_protected_resource_t))) {
+		return SGX_ERROR_UNEXPECTED;
+	}
+	sgx_status_t status = SGX_SUCCESS;
+	const char* _tmp_name_file = __in_ms.ms_name_file;
+	size_t _len_name_file = __in_ms.ms_name_file_len ;
+	char* _in_name_file = NULL;
+	const char* _tmp_file_content = __in_ms.ms_file_content;
+	size_t _len_file_content = __in_ms.ms_file_content_len ;
+	char* _in_file_content = NULL;
+	const char* _tmp_policy = __in_ms.ms_policy;
+	size_t _len_policy = __in_ms.ms_policy_len ;
+	char* _in_policy = NULL;
+
+	CHECK_UNIQUE_POINTER(_tmp_name_file, _len_name_file);
+	CHECK_UNIQUE_POINTER(_tmp_file_content, _len_file_content);
+	CHECK_UNIQUE_POINTER(_tmp_policy, _len_policy);
+
+	//
+	// fence after pointer checks
+	//
+	sgx_lfence();
+
+	if (_tmp_name_file != NULL && _len_name_file != 0) {
+		_in_name_file = (char*)malloc(_len_name_file);
+		if (_in_name_file == NULL) {
+			status = SGX_ERROR_OUT_OF_MEMORY;
+			goto err;
+		}
+
+		if (memcpy_s(_in_name_file, _len_name_file, _tmp_name_file, _len_name_file)) {
+			status = SGX_ERROR_UNEXPECTED;
+			goto err;
+		}
+
+		_in_name_file[_len_name_file - 1] = '\0';
+		if (_len_name_file != strlen(_in_name_file) + 1)
+		{
+			status = SGX_ERROR_UNEXPECTED;
+			goto err;
+		}
+	}
+	if (_tmp_file_content != NULL && _len_file_content != 0) {
+		_in_file_content = (char*)malloc(_len_file_content);
+		if (_in_file_content == NULL) {
+			status = SGX_ERROR_OUT_OF_MEMORY;
+			goto err;
+		}
+
+		if (memcpy_s(_in_file_content, _len_file_content, _tmp_file_content, _len_file_content)) {
+			status = SGX_ERROR_UNEXPECTED;
+			goto err;
+		}
+
+		_in_file_content[_len_file_content - 1] = '\0';
+		if (_len_file_content != strlen(_in_file_content) + 1)
+		{
+			status = SGX_ERROR_UNEXPECTED;
+			goto err;
+		}
+	}
+	if (_tmp_policy != NULL && _len_policy != 0) {
+		_in_policy = (char*)malloc(_len_policy);
+		if (_in_policy == NULL) {
+			status = SGX_ERROR_OUT_OF_MEMORY;
+			goto err;
+		}
+
+		if (memcpy_s(_in_policy, _len_policy, _tmp_policy, _len_policy)) {
+			status = SGX_ERROR_UNEXPECTED;
+			goto err;
+		}
+
+		_in_policy[_len_policy - 1] = '\0';
+		if (_len_policy != strlen(_in_policy) + 1)
+		{
+			status = SGX_ERROR_UNEXPECTED;
+			goto err;
+		}
+	}
+	new_protected_resource((const char*)_in_name_file, (const char*)_in_file_content, (const char*)_in_policy);
+
+err:
+	if (_in_name_file) free(_in_name_file);
+	if (_in_file_content) free(_in_file_content);
+	if (_in_policy) free(_in_policy);
+	return status;
+}
+
+static sgx_status_t SGX_CDECL sgx_del(void* pms)
+{
+	sgx_status_t status = SGX_SUCCESS;
+	if (pms != NULL) return SGX_ERROR_INVALID_PARAMETER;
+	del();
+	return status;
+}
+
 static sgx_status_t SGX_CDECL sgx_seal(void* pms)
 {
 	CHECK_REF_POINTER(pms, sizeof(ms_seal_t));
@@ -467,11 +582,13 @@ err:
 
 SGX_EXTERNC const struct {
 	size_t nr_ecall;
-	struct {void* ecall_addr; uint8_t is_priv; uint8_t is_switchless;} ecall_table[3];
+	struct {void* ecall_addr; uint8_t is_priv; uint8_t is_switchless;} ecall_table[5];
 } g_ecall_table = {
-	3,
+	5,
 	{
 		{(void*)(uintptr_t)sgx_access_protected_resource, 0, 0},
+		{(void*)(uintptr_t)sgx_new_protected_resource, 0, 0},
+		{(void*)(uintptr_t)sgx_del, 0, 0},
 		{(void*)(uintptr_t)sgx_seal, 0, 0},
 		{(void*)(uintptr_t)sgx_unseal, 0, 0},
 	}
@@ -479,29 +596,29 @@ SGX_EXTERNC const struct {
 
 SGX_EXTERNC const struct {
 	size_t nr_ocall;
-	uint8_t entry_table[19][3];
+	uint8_t entry_table[19][5];
 } g_dyn_entry_table = {
 	19,
 	{
-		{0, 0, 0, },
-		{0, 0, 0, },
-		{0, 0, 0, },
-		{0, 0, 0, },
-		{0, 0, 0, },
-		{0, 0, 0, },
-		{0, 0, 0, },
-		{0, 0, 0, },
-		{0, 0, 0, },
-		{0, 0, 0, },
-		{0, 0, 0, },
-		{0, 0, 0, },
-		{0, 0, 0, },
-		{0, 0, 0, },
-		{0, 0, 0, },
-		{0, 0, 0, },
-		{0, 0, 0, },
-		{0, 0, 0, },
-		{0, 0, 0, },
+		{0, 0, 0, 0, 0, },
+		{0, 0, 0, 0, 0, },
+		{0, 0, 0, 0, 0, },
+		{0, 0, 0, 0, 0, },
+		{0, 0, 0, 0, 0, },
+		{0, 0, 0, 0, 0, },
+		{0, 0, 0, 0, 0, },
+		{0, 0, 0, 0, 0, },
+		{0, 0, 0, 0, 0, },
+		{0, 0, 0, 0, 0, },
+		{0, 0, 0, 0, 0, },
+		{0, 0, 0, 0, 0, },
+		{0, 0, 0, 0, 0, },
+		{0, 0, 0, 0, 0, },
+		{0, 0, 0, 0, 0, },
+		{0, 0, 0, 0, 0, },
+		{0, 0, 0, 0, 0, },
+		{0, 0, 0, 0, 0, },
+		{0, 0, 0, 0, 0, },
 	}
 };
 

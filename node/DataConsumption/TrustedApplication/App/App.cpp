@@ -93,17 +93,35 @@ int main(int argc, char const *argv[]) {
         std::cout << "Fail to initialize enclave." << std::endl;
         return 1;
     }
-    SGX_FILE *file;
+
+    /*SGX_FILE *file;
     const char *a = "abc";
     const char *b = "abc";
     int *prova;
     char* mode="access";
-    char* id_res="3";
+    char* id_res="2";
     sgx_status_t status = access_protected_resource(global_eid, &file, a, b, prova, mode, id_res);
+    std::cout << status << std::endl;*/
+
+   del(global_eid);
+
+    /*const char *f_name = "new_file.txt";
+    const char *f_content = "CIAOCIAO";
+    const char *f_policy = "FR,10,10,Social\n";
+    sgx_status_t status = new_protected_resource(global_eid, f_name, f_content, f_policy);
     std::cout << status << std::endl;
-    if (status != SGX_SUCCESS) {
+*/
+    /*const char *f_name2 = "second_file.txt";
+    const char *f_content2 = "IUPPI";
+    const char *f_policy2 = "ES,30,30,Research\n";
+    sgx_status_t status = new_protected_resource(global_eid, f_name2, f_content2, f_policy2);
+    std::cout << status << std::endl;*/
+
+
+
+    /*if (status != SGX_SUCCESS) {
         std::cout << "noob" << std::endl;
-    }
+    }*/
     std::cout << "Disconnessione" << std::endl;
     DIR *d;
     struct dirent *dir;
