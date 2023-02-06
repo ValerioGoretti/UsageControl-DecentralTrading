@@ -1,10 +1,14 @@
 #include "Enclave_t.h"
 #include "stdio.h"
+#include <stdlib.h>
 #include <sgx_tprotected_fs.h>
 #include <sgx_tseal.h>
 #include <sgx_utils.h>
 #include <string.h>
 #include "sgx_tprotected_fs.h"
+
+#include <sgx_urts.h>
+#include <sgx_uae_service.h>
 
 
 bool authenticate_application(const char *pub_k, const char *encr_pubk) {
@@ -76,14 +80,34 @@ char *get_usage_log() {
     return read_protected_file("Logs.txt");
 }
 
-size_t write_protected_file(char *data) {
-    SGX_FILE *file = sgx_fopen_auto_key("Usage_Policies.txt", "a+");
-    size_t len = strlen(data);
+size_t write_protected_file_gen(const char *filename, char *mode, char *data) {
+    char *d = strndup(data, strlen(data));
+    SGX_FILE *file = sgx_fopen_auto_key(filename, mode);
+    size_t len = strlen(d);
     if (file == NULL) {
         ocall_print("Error opening usage policy file.\n");
     }
 
-    size_t sizeofWrite = sgx_fwrite(data, sizeof(char), len, file);
+
+    size_t sizeofWrite = sgx_fwrite(d, sizeof(char), len, file);
+
+    if (sizeofWrite == 0) {
+        ocall_print("Error writing file.\n");
+    }
+
+    sgx_fclose(file);
+    return sizeofWrite;
+}
+
+size_t write_protected_file(char *data) {
+    char *d = strndup(data, strlen(data));
+    SGX_FILE *file = sgx_fopen_auto_key("Usage_Policies.txt", "a+");
+    size_t len = strlen(d);
+    if (file == NULL) {
+        ocall_print("Error opening usage policy file.\n");
+    }
+
+    size_t sizeofWrite = sgx_fwrite(d, sizeof(char), len, file);
 
     if (sizeofWrite == 0) {
         ocall_print("Error writing file.\n");
@@ -199,6 +223,25 @@ int count_log_access(char *id_res) {
     return c;
 }
 
+char *retrieve_log_timestamp(char *id_res) {
+    char *res = read_protected_file("Logs.txt");
+
+    char *end_str;
+    char *token = strtok_r(res, "\n", &end_str);
+
+    while (token != NULL) {
+        if (search_id(id_res, token)) {
+            int pos = 2;
+            char *u_p = strndup(token, strlen(token));
+            char *temp_constraint = get_policy_value(u_p, pos);
+            return temp_constraint;
+        }
+        token = strtok_r(NULL, "\n", &end_str);
+    }
+
+    return NULL;
+}
+
 bool enforce_geographical(char *usage_policy) {
     ocall_print("============GEO============= ✓");
     int pos = 2;
@@ -236,27 +279,7 @@ bool enforce_access_counter(char *usage_policy, char *id_res) {
     int access = count_log_access(id_res);
     //*+retrieve the number of the access by the log
     return ac >= access;
-}
-
-bool enforce_temporal(char *usage_policy) {
-    ocall_print("============Temporal=============");
-    int pos = 4;
-    char *u_p = strndup(usage_policy, strlen(usage_policy));
-
-    char *constraint_temporal = get_policy_value(u_p, pos);
-
-    char string_now[128];
-    int now;
-    get_time(&now, sizeof(now));
-    //snprintf(string_now,128,"%d",now); to converto the timestamp to a string format for printing
-    //*+parse the usage policy and get the country constraint here.
-    //ocall_print_int(&now);
-
-    int retrieval_timestamp = 0;
-    int max_duration = 0;
-
-    //return retrieval_timestamp + max_duration > now;
-    return true;
+    ocall_print(" - remove - ");
 }
 
 char *search_application(char *id_app) {
@@ -279,16 +302,133 @@ char *get_application_purpose(char *app) {
     return purpose;
 }
 
-void remove_file(char *filename){
+void remove_policy(const char *id) {
+    ocall_print("---------(remove policy)----------");
+
+    char *res = read_protected_file("Usage_Policies.txt");
+    ocall_print(res);
+
+    char *end_str;
+    char *token = strtok_r(res, "\n", &end_str);
+
+    ocall_print(" - remove - ");
+
+    while (token != NULL) {
+        if (!search_id(id, token)) {
+            char *tok = (char *) malloc(strlen(token) + strlen("\n") + 1);
+            tok = strndup(token, strlen(token));
+            strncat(tok, "\n", strlen("\n"));
+            write_protected_file_gen("Usage_Policies_temp.txt", "a+", tok);
+            ocall_print(token);
+        }
+        token = strtok_r(NULL, "\n", &end_str);
+    }
+
+    delete_file("Usage_Policies.txt");
+    char *r = read_protected_file("Usage_Policies_temp.txt");
+    char *end_str_temp;
+    char *token_temp = strtok_r(r, "\n", &end_str_temp);
+
+    while (token_temp != NULL) {
+        char *tok_temp = (char *) malloc(strlen(token_temp) + 1);
+        write_protected_file_gen("Usage_Policies.txt", "a+", tok_temp);
+        ocall_print(token_temp);
+        token_temp = strtok_r(NULL, "\n", &end_str_temp);
+    }
+
+    delete_file("Usage_Policies_temp.txt");
+}
+
+
+void write_log_entry(const char *id_resource, const char *mode, const char *app_purpose) {
+    char string_now[128];
+    int now;
+    get_time(&now, sizeof(now));
+    snprintf(string_now, 128, "%d", now);
+
+    char geo_location[128];
+    size_t length;
+    get_geo_location(geo_location, sizeof(geo_location));
+
+    char *log = concatenate(id_resource, mode, string_now, app_purpose, geo_location);
+    write_log(log);
+
+    char *res = read_protected_file("Logs.txt");
+    ocall_print(res);
+}
+
+void remove_file(char *id) {
+    size_t len = strlen(id);
+    const char *ext = ".txt";
+    size_t len_ext = strlen(ext);
+
+    char *name_file = (char *) malloc(len + len_ext + 1);
+
+    strncat(name_file, id, len);
+    strncat(name_file, ext, len_ext);
+
+//  delete file
+    delete_file(name_file);
+
+
+//  delete policy
+    remove_policy(id);
+
+
+//  store action in log
+    write_log_entry(id, "remove", "NONE");
 
 }
 
-SGX_FILE *access_protected_resource(const char *pub_k, const char *encr_pubk, int *id_res, char *mode, char *id_resource) {
-    char *policies = get_policy(id_resource);
+bool check_temporal(char *usage_policy, char *id_res) {
+    int pos = 4;
 
+    char *u_p = strndup(usage_policy, strlen(usage_policy));
+
+    char *constraint_temporal = get_policy_value(u_p, pos);
+
+    int max_duration = atoi(constraint_temporal);
+
+    char string_now[128];
+    int now;
+    get_time(&now, sizeof(now));
+    //snprintf(string_now,128,"%d",now); to converto the timestamp to a string format for printing
+    //*+parse the usage policy and get the country constraint here.
+    //ocall_print_int(&now);
+
+    char *r_t = retrieve_log_timestamp(id_res);
+
+    int retrieval_timestamp = atoi(r_t);
+
+    return retrieval_timestamp + max_duration > now;
+}
+
+void enforce_temporal() {
+    ocall_print("============Temporal============= ✓");
+    char *policies = get_policies();
     ocall_print(policies);
-    //ocall_print(mode);
-    //ocall_print(id_resource);
+
+    char *end_str;
+    char *token = strtok_r(policies, "\n", &end_str);
+
+    ocall_print(token);
+
+    while (token != NULL) {
+        char *tok = strndup(token, strlen(token));
+        char *tok_d = strndup(token, strlen(token));
+        char *id = get_policy_value(tok, 0);
+        if(!check_temporal(tok_d,id)){
+            remove_file(id);
+        }
+        token = strtok_r(NULL, "\n", &end_str);
+    }
+}
+
+
+SGX_FILE *
+access_protected_resource(const char *pub_k, const char *encr_pubk, char *mode, char *id_resource) {
+    char *policies = get_policy(id_resource);
+    ocall_print(policies);
 
 
     //=====================Application Recognized=====================
@@ -327,16 +467,6 @@ SGX_FILE *access_protected_resource(const char *pub_k, const char *encr_pubk, in
 
     char *log = concatenate(id_resource, mode, string_now, app_purpose, geo_location);
     //char *log = concatenate("4", "access", "1674662590", "efg", "FR");
-    write_log(log);
-
-    char *res = read_protected_file("Logs.txt");
-    ocall_print(res);
-
-    //count_log_access("4");
-
-    //delete_file("Logs.txt");
-
-
 
     //=================ENFORCEMENT=================
 
@@ -344,6 +474,15 @@ SGX_FILE *access_protected_resource(const char *pub_k, const char *encr_pubk, in
         ocall_print("Geographical rule fulfilled");
         if (enforce_domain(policies, app_purpose)) {
             ocall_print("Domain rule fulfilled");
+            if (enforce_access_counter(policies, id_resource)) {
+                ocall_print("Access Counter rule fulfilled");
+                write_log(log);
+                char *res = read_protected_file("Logs.txt");
+                ocall_print(res);
+            } else {
+                remove_file(id_resource);
+                ocall_print("Access Counter rule not fulfilled");
+            }
         } else {
             ocall_print("Domain rule not fulfilled");
         }
@@ -351,24 +490,8 @@ SGX_FILE *access_protected_resource(const char *pub_k, const char *encr_pubk, in
         ocall_print("Geographical rule not fulfilled");
     }
 
-
-    if (enforce_access_counter(policies, id_resource)) {
-        ocall_print("Access Counter rule fulfilled");
-        if (enforce_temporal(policies)) {
-            ocall_print("Temporal rule fulfilled");
-        } else {
-//            remove_file();
-            ocall_print("Temporal rule not fulfilled");
-        }
-    } else {
-//        remove_file();
-        ocall_print("Access Counter rule not fulfilled");
-    }
-
-
     return NULL;
 }
-
 
 size_t write_new_file(const char *filename, char *mode, const char *data) {
     SGX_FILE *file = sgx_fopen_auto_key(filename, mode);
@@ -387,65 +510,56 @@ size_t write_new_file(const char *filename, char *mode, const char *data) {
     return sizeofWrite;
 }
 
-char *last_id(char *policies) {
-    char *end_str;
-    char *token = strtok_r(policies, "\n", &end_str);
-    int c = 0;
-    int max = 0;
-    while (token != NULL) {
-        char *end_token;
-        char *token2 = strtok_r(token, ",", &end_token);
-        while (token2 != NULL) {
-            int number = atoi(token2);
-            if (c == 0) {
-                max = number;
-            }
-            if (max < number) {
-                max = number;
-            }
-            c++;
-            break;
-        }
-        token = strtok_r(NULL, "\n", &end_str);
-    }
-    static char numb[64];
-    snprintf(numb, 64, "%d", max + 1);
-    return numb;
-}
-
 void del() {
     delete_file("Usage_Policies.txt");
-    delete_file("new_file.txt");
-    delete_file("second_file.txt");
-    delete_file("third_file.txt");
-    delete_file("thir4d_file.txt");
+    delete_file("Usage_Policies_temp.txt");
     delete_file("Usage_Logs.txt");
     delete_file("Logs.txt");
+    delete_file("1.txt");
+    delete_file("2.txt");
 }
 
-void new_protected_resource(const char *name_file, const char *file_content, const char *policy) {
+void new_protected_resource(const char *id_file, const char *file_content, const char *policy) {
+    size_t len = strlen(id_file);
+    const char *ext = ".txt";
+    size_t len_ext = strlen(ext);
+
+    char *name_file = (char *) malloc(len + len_ext + 1);
+
+    strncat(name_file, id_file, len);
+    strncat(name_file, ext, len_ext);
+
+//    ocall_print(name_file);
+
+//    Create new resource
     write_new_file(name_file, "w+", file_content);
-    //char *res = read_protected_file(name_file);
-    //ocall_print(res);
-
-    char *policies = get_policies();
-
-    ocall_print(policies);
-
-    char *l = last_id(policies);
-//    ocall_print(l);
+    char *res = read_protected_file(name_file);
+//    ocall_print(res);
 
     size_t len2 = strlen(name_file);
     size_t len3 = strlen(policy);
 
-    strncat(l, ",", 1);
-    strncat(l, name_file, len2);
-    strncat(l, ",", 1);
-    strncat(l, policy, len3);
+//    Update usage policy
+    const char *comma = ",";
+    const char *newline = "\n";
+    size_t len_comma = strlen(comma);
+    size_t len_newline = strlen(newline);
 
-    write_protected_file(l);
+    char *l = (char *) malloc(len + len_comma + len2 + len_comma + len3 + len_newline + 1);
+
+    l = strndup(id_file, len);
+    strncat(l, comma, len_comma);
+    strncat(l, name_file, len2);
+    strncat(l, comma, len_comma);
+    strncat(l, policy, len3);
+    strncat(l, newline, len_newline);
+
+    char *l_w = strndup(l, strlen(l));
+    write_protected_file_gen("Usage_Policies.txt", "a+", l_w);
 
     char *policies2 = get_policies();
-//    ocall_print(policies2);
+    ocall_print(policies2);
 
+//    Store action in usage Log
+    write_log_entry(id_file, "retrieval", "NONE");
 }

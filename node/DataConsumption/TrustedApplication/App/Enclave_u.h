@@ -95,9 +95,10 @@ int SGX_UBRIDGE(SGX_CDECL, sgx_thread_setwait_untrusted_events_ocall, (const voi
 int SGX_UBRIDGE(SGX_CDECL, sgx_thread_set_multiple_untrusted_events_ocall, (const void** waiters, size_t total));
 #endif
 
-sgx_status_t access_protected_resource(sgx_enclave_id_t eid, SGX_FILE** retval, const char* pub_k, const char* encr_pubk, int* id_res, char* mode, char* id_resource);
+sgx_status_t access_protected_resource(sgx_enclave_id_t eid, SGX_FILE** retval, const char* pub_k, const char* encr_pubk, char* mode, char* id_resource);
 sgx_status_t new_protected_resource(sgx_enclave_id_t eid, const char* name_file, const char* file_content, const char* policy);
 sgx_status_t del(sgx_enclave_id_t eid);
+sgx_status_t enforce_temporal(sgx_enclave_id_t eid);
 sgx_status_t seal(sgx_enclave_id_t eid, sgx_status_t* retval, uint8_t* plaintext, size_t plaintext_len, sgx_sealed_data_t* sealed_data, size_t sealed_size);
 sgx_status_t unseal(sgx_enclave_id_t eid, sgx_status_t* retval, sgx_sealed_data_t* sealed_data, size_t sealed_size, uint8_t* plaintext, uint32_t plaintext_len);
 

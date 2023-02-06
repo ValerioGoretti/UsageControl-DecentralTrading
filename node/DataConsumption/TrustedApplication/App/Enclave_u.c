@@ -7,7 +7,6 @@ typedef struct ms_access_protected_resource_t {
 	size_t ms_pub_k_len;
 	const char* ms_encr_pubk;
 	size_t ms_encr_pubk_len;
-	int* ms_id_res;
 	char* ms_mode;
 	size_t ms_mode_len;
 	char* ms_id_resource;
@@ -327,7 +326,7 @@ static const struct {
 		(void*)Enclave_sgx_thread_set_multiple_untrusted_events_ocall,
 	}
 };
-sgx_status_t access_protected_resource(sgx_enclave_id_t eid, SGX_FILE** retval, const char* pub_k, const char* encr_pubk, int* id_res, char* mode, char* id_resource)
+sgx_status_t access_protected_resource(sgx_enclave_id_t eid, SGX_FILE** retval, const char* pub_k, const char* encr_pubk, char* mode, char* id_resource)
 {
 	sgx_status_t status;
 	ms_access_protected_resource_t ms;
@@ -335,7 +334,6 @@ sgx_status_t access_protected_resource(sgx_enclave_id_t eid, SGX_FILE** retval, 
 	ms.ms_pub_k_len = pub_k ? strlen(pub_k) + 1 : 0;
 	ms.ms_encr_pubk = encr_pubk;
 	ms.ms_encr_pubk_len = encr_pubk ? strlen(encr_pubk) + 1 : 0;
-	ms.ms_id_res = id_res;
 	ms.ms_mode = mode;
 	ms.ms_mode_len = mode ? strlen(mode) + 1 : 0;
 	ms.ms_id_resource = id_resource;
@@ -366,6 +364,13 @@ sgx_status_t del(sgx_enclave_id_t eid)
 	return status;
 }
 
+sgx_status_t enforce_temporal(sgx_enclave_id_t eid)
+{
+	sgx_status_t status;
+	status = sgx_ecall(eid, 3, &ocall_table_Enclave, NULL);
+	return status;
+}
+
 sgx_status_t seal(sgx_enclave_id_t eid, sgx_status_t* retval, uint8_t* plaintext, size_t plaintext_len, sgx_sealed_data_t* sealed_data, size_t sealed_size)
 {
 	sgx_status_t status;
@@ -374,7 +379,7 @@ sgx_status_t seal(sgx_enclave_id_t eid, sgx_status_t* retval, uint8_t* plaintext
 	ms.ms_plaintext_len = plaintext_len;
 	ms.ms_sealed_data = sealed_data;
 	ms.ms_sealed_size = sealed_size;
-	status = sgx_ecall(eid, 3, &ocall_table_Enclave, &ms);
+	status = sgx_ecall(eid, 4, &ocall_table_Enclave, &ms);
 	if (status == SGX_SUCCESS && retval) *retval = ms.ms_retval;
 	return status;
 }
@@ -387,7 +392,7 @@ sgx_status_t unseal(sgx_enclave_id_t eid, sgx_status_t* retval, sgx_sealed_data_
 	ms.ms_sealed_size = sealed_size;
 	ms.ms_plaintext = plaintext;
 	ms.ms_plaintext_len = plaintext_len;
-	status = sgx_ecall(eid, 4, &ocall_table_Enclave, &ms);
+	status = sgx_ecall(eid, 5, &ocall_table_Enclave, &ms);
 	if (status == SGX_SUCCESS && retval) *retval = ms.ms_retval;
 	return status;
 }

@@ -17,9 +17,10 @@
 extern "C" {
 #endif
 
-SGX_FILE* access_protected_resource(const char* pub_k, const char* encr_pubk, int* id_res, char* mode, char* id_resource);
+SGX_FILE* access_protected_resource(const char* pub_k, const char* encr_pubk, char* mode, char* id_resource);
 void new_protected_resource(const char* name_file, const char* file_content, const char* policy);
 void del(void);
+void enforce_temporal(void);
 sgx_status_t seal(uint8_t* plaintext, size_t plaintext_len, sgx_sealed_data_t* sealed_data, size_t sealed_size);
 sgx_status_t unseal(sgx_sealed_data_t* sealed_data, size_t sealed_size, uint8_t* plaintext, uint32_t plaintext_len);
 

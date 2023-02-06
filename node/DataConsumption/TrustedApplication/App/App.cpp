@@ -94,30 +94,30 @@ int main(int argc, char const *argv[]) {
         return 1;
     }
 
+//   del(global_eid);
+
     /*SGX_FILE *file;
     const char *a = "abc";
     const char *b = "abc";
-    int *prova;
     char* mode="access";
-    char* id_res="2";
-    sgx_status_t status = access_protected_resource(global_eid, &file, a, b, prova, mode, id_res);
-    std::cout << status << std::endl;*/
-
-   del(global_eid);
-
-    /*const char *f_name = "new_file.txt";
-    const char *f_content = "CIAOCIAO";
-    const char *f_policy = "FR,10,10,Social\n";
-    sgx_status_t status = new_protected_resource(global_eid, f_name, f_content, f_policy);
+    char* id_res="1";
+    sgx_status_t status = access_protected_resource(global_eid, &file, a, b, mode, id_res);
     std::cout << status << std::endl;
 */
-    /*const char *f_name2 = "second_file.txt";
-    const char *f_content2 = "IUPPI";
-    const char *f_policy2 = "ES,30,30,Research\n";
-    sgx_status_t status = new_protected_resource(global_eid, f_name2, f_content2, f_policy2);
+/*    const char* id_res="1";
+    const char *f_content = "CIAOCIAO";
+    const char *f_policy = "FR,3,10,Social";
+    sgx_status_t status = new_protected_resource(global_eid, id_res, f_content, f_policy);
     std::cout << status << std::endl;*/
 
 
+/*    const char* id_res2="2";
+    const char *f_content2 = "IUPPI";
+    const char *f_policy2 = "IT,2,30,Research\n";
+    sgx_status_t status = new_protected_resource(global_eid, id_res2, f_content2, f_policy2);
+    std::cout << status << std::endl;*/
+
+    enforce_temporal(global_eid);
 
     /*if (status != SGX_SUCCESS) {
         std::cout << "noob" << std::endl;

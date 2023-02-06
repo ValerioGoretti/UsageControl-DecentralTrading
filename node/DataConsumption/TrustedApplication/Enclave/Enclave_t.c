@@ -33,7 +33,6 @@ typedef struct ms_access_protected_resource_t {
 	size_t ms_pub_k_len;
 	const char* ms_encr_pubk;
 	size_t ms_encr_pubk_len;
-	int* ms_id_res;
 	char* ms_mode;
 	size_t ms_mode_len;
 	char* ms_id_resource;
@@ -193,9 +192,6 @@ static sgx_status_t SGX_CDECL sgx_access_protected_resource(void* pms)
 	const char* _tmp_encr_pubk = __in_ms.ms_encr_pubk;
 	size_t _len_encr_pubk = __in_ms.ms_encr_pubk_len ;
 	char* _in_encr_pubk = NULL;
-	int* _tmp_id_res = __in_ms.ms_id_res;
-	size_t _len_id_res = sizeof(int);
-	int* _in_id_res = NULL;
 	char* _tmp_mode = __in_ms.ms_mode;
 	size_t _len_mode = __in_ms.ms_mode_len ;
 	char* _in_mode = NULL;
@@ -206,7 +202,6 @@ static sgx_status_t SGX_CDECL sgx_access_protected_resource(void* pms)
 
 	CHECK_UNIQUE_POINTER(_tmp_pub_k, _len_pub_k);
 	CHECK_UNIQUE_POINTER(_tmp_encr_pubk, _len_encr_pubk);
-	CHECK_UNIQUE_POINTER(_tmp_id_res, _len_id_res);
 	CHECK_UNIQUE_POINTER(_tmp_mode, _len_mode);
 	CHECK_UNIQUE_POINTER(_tmp_id_resource, _len_id_resource);
 
@@ -253,24 +248,6 @@ static sgx_status_t SGX_CDECL sgx_access_protected_resource(void* pms)
 			goto err;
 		}
 	}
-	if (_tmp_id_res != NULL && _len_id_res != 0) {
-		if ( _len_id_res % sizeof(*_tmp_id_res) != 0)
-		{
-			status = SGX_ERROR_INVALID_PARAMETER;
-			goto err;
-		}
-		_in_id_res = (int*)malloc(_len_id_res);
-		if (_in_id_res == NULL) {
-			status = SGX_ERROR_OUT_OF_MEMORY;
-			goto err;
-		}
-
-		if (memcpy_s(_in_id_res, _len_id_res, _tmp_id_res, _len_id_res)) {
-			status = SGX_ERROR_UNEXPECTED;
-			goto err;
-		}
-
-	}
 	if (_tmp_mode != NULL && _len_mode != 0) {
 		_in_mode = (char*)malloc(_len_mode);
 		if (_in_mode == NULL) {
@@ -309,7 +286,7 @@ static sgx_status_t SGX_CDECL sgx_access_protected_resource(void* pms)
 			goto err;
 		}
 	}
-	_in_retval = access_protected_resource((const char*)_in_pub_k, (const char*)_in_encr_pubk, _in_id_res, _in_mode, _in_id_resource);
+	_in_retval = access_protected_resource((const char*)_in_pub_k, (const char*)_in_encr_pubk, _in_mode, _in_id_resource);
 	if (memcpy_verw_s(&ms->ms_retval, sizeof(ms->ms_retval), &_in_retval, sizeof(_in_retval))) {
 		status = SGX_ERROR_UNEXPECTED;
 		goto err;
@@ -318,7 +295,6 @@ static sgx_status_t SGX_CDECL sgx_access_protected_resource(void* pms)
 err:
 	if (_in_pub_k) free(_in_pub_k);
 	if (_in_encr_pubk) free(_in_encr_pubk);
-	if (_in_id_res) free(_in_id_res);
 	if (_in_mode) free(_in_mode);
 	if (_in_id_resource) free(_in_id_resource);
 	return status;
@@ -427,6 +403,14 @@ static sgx_status_t SGX_CDECL sgx_del(void* pms)
 	sgx_status_t status = SGX_SUCCESS;
 	if (pms != NULL) return SGX_ERROR_INVALID_PARAMETER;
 	del();
+	return status;
+}
+
+static sgx_status_t SGX_CDECL sgx_enforce_temporal(void* pms)
+{
+	sgx_status_t status = SGX_SUCCESS;
+	if (pms != NULL) return SGX_ERROR_INVALID_PARAMETER;
+	enforce_temporal();
 	return status;
 }
 
@@ -582,13 +566,14 @@ err:
 
 SGX_EXTERNC const struct {
 	size_t nr_ecall;
-	struct {void* ecall_addr; uint8_t is_priv; uint8_t is_switchless;} ecall_table[5];
+	struct {void* ecall_addr; uint8_t is_priv; uint8_t is_switchless;} ecall_table[6];
 } g_ecall_table = {
-	5,
+	6,
 	{
 		{(void*)(uintptr_t)sgx_access_protected_resource, 0, 0},
 		{(void*)(uintptr_t)sgx_new_protected_resource, 0, 0},
 		{(void*)(uintptr_t)sgx_del, 0, 0},
+		{(void*)(uintptr_t)sgx_enforce_temporal, 0, 0},
 		{(void*)(uintptr_t)sgx_seal, 0, 0},
 		{(void*)(uintptr_t)sgx_unseal, 0, 0},
 	}
@@ -596,29 +581,29 @@ SGX_EXTERNC const struct {
 
 SGX_EXTERNC const struct {
 	size_t nr_ocall;
-	uint8_t entry_table[19][5];
+	uint8_t entry_table[19][6];
 } g_dyn_entry_table = {
 	19,
 	{
-		{0, 0, 0, 0, 0, },
-		{0, 0, 0, 0, 0, },
-		{0, 0, 0, 0, 0, },
-		{0, 0, 0, 0, 0, },
-		{0, 0, 0, 0, 0, },
-		{0, 0, 0, 0, 0, },
-		{0, 0, 0, 0, 0, },
-		{0, 0, 0, 0, 0, },
-		{0, 0, 0, 0, 0, },
-		{0, 0, 0, 0, 0, },
-		{0, 0, 0, 0, 0, },
-		{0, 0, 0, 0, 0, },
-		{0, 0, 0, 0, 0, },
-		{0, 0, 0, 0, 0, },
-		{0, 0, 0, 0, 0, },
-		{0, 0, 0, 0, 0, },
-		{0, 0, 0, 0, 0, },
-		{0, 0, 0, 0, 0, },
-		{0, 0, 0, 0, 0, },
+		{0, 0, 0, 0, 0, 0, },
+		{0, 0, 0, 0, 0, 0, },
+		{0, 0, 0, 0, 0, 0, },
+		{0, 0, 0, 0, 0, 0, },
+		{0, 0, 0, 0, 0, 0, },
+		{0, 0, 0, 0, 0, 0, },
+		{0, 0, 0, 0, 0, 0, },
+		{0, 0, 0, 0, 0, 0, },
+		{0, 0, 0, 0, 0, 0, },
+		{0, 0, 0, 0, 0, 0, },
+		{0, 0, 0, 0, 0, 0, },
+		{0, 0, 0, 0, 0, 0, },
+		{0, 0, 0, 0, 0, 0, },
+		{0, 0, 0, 0, 0, 0, },
+		{0, 0, 0, 0, 0, 0, },
+		{0, 0, 0, 0, 0, 0, },
+		{0, 0, 0, 0, 0, 0, },
+		{0, 0, 0, 0, 0, 0, },
+		{0, 0, 0, 0, 0, 0, },
 	}
 };
 
