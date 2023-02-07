@@ -42,10 +42,6 @@ typedef struct ms_ocall_print_t {
 	const char* ms_str;
 } ms_ocall_print_t;
 
-typedef struct ms_ocall_print_int_t {
-	int* ms_num;
-} ms_ocall_print_int_t;
-
 typedef struct ms_get_geo_location_t {
 	char* ms_str;
 	size_t ms_length;
@@ -151,14 +147,6 @@ static sgx_status_t SGX_CDECL Enclave_ocall_print(void* pms)
 {
 	ms_ocall_print_t* ms = SGX_CAST(ms_ocall_print_t*, pms);
 	ocall_print(ms->ms_str);
-
-	return SGX_SUCCESS;
-}
-
-static sgx_status_t SGX_CDECL Enclave_ocall_print_int(void* pms)
-{
-	ms_ocall_print_int_t* ms = SGX_CAST(ms_ocall_print_int_t*, pms);
-	ocall_print_int(ms->ms_num);
 
 	return SGX_SUCCESS;
 }
@@ -301,12 +289,11 @@ static sgx_status_t SGX_CDECL Enclave_sgx_thread_set_multiple_untrusted_events_o
 
 static const struct {
 	size_t nr_ocall;
-	void * table[19];
+	void * table[18];
 } ocall_table_Enclave = {
-	19,
+	18,
 	{
 		(void*)Enclave_ocall_print,
-		(void*)Enclave_ocall_print_int,
 		(void*)Enclave_get_geo_location,
 		(void*)Enclave_get_time,
 		(void*)Enclave_u_sgxprotectedfs_exclusive_file_open,

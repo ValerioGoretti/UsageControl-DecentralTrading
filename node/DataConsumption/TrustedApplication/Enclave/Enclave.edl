@@ -12,7 +12,6 @@ enclave {
     untrusted {
         /* define OCALLs here. */
         void ocall_print([in, string]const char* str);
-        void ocall_print_int([in] int *num);
         void get_geo_location([out, size=length]char* str, size_t length);
         void get_time([out, size=length]int* time, size_t length);
     };

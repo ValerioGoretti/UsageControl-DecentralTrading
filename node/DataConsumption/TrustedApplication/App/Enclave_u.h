@@ -22,10 +22,6 @@ extern "C" {
 #define OCALL_PRINT_DEFINED__
 void SGX_UBRIDGE(SGX_NOCONVENTION, ocall_print, (const char* str));
 #endif
-#ifndef OCALL_PRINT_INT_DEFINED__
-#define OCALL_PRINT_INT_DEFINED__
-void SGX_UBRIDGE(SGX_NOCONVENTION, ocall_print_int, (int* num));
-#endif
 #ifndef GET_GEO_LOCATION_DEFINED__
 #define GET_GEO_LOCATION_DEFINED__
 void SGX_UBRIDGE(SGX_NOCONVENTION, get_geo_location, (char* str, size_t length));

@@ -517,8 +517,8 @@ void enforce_temporal() {
 void addApplication(char * app){
     //char * data="abc,Facebook,Social\nefg,HealthCare,Medical\ncde,Zooresearch,Research";
     write_protected_file_gen("Application.txt", "a+",app);
-    char* app=read_protected_file("Application.txt");
-    ocall_print(app);
+    char* r_app=read_protected_file("Application.txt");
+    ocall_print(r_app);
 }
 
 /**
