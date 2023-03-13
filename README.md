@@ -38,10 +38,10 @@ The repository is composed of two main folders. The ```/contracts``` folder cont
 In order to setup the blockchain environment you will need to run the Ganache local blockchain and deploy the smart contracts in the ```/contracts``` folder.
 Start the Ganache environment by using:
 ```
-ganache-cli -m '<MNEMONIC>' --db volume/<BLOCKCHAIN_DATA_PATH>
+ganache-cli -m '<MNEMONIC_SENTENCE>' --db volume/<BLOCKCHAIN_DATA_PATH>
 ```
 where:
-- <MNEMONIC> : A bip39 mnemonic phrase for generating a PRNG seed, which is in turn used for hierarchical deterministic (HD) account generation.
+- <MNEMONIC_SENTENCE> : A bip39 mnemonic phrase for generating a PRNG seed, which is in turn used for hierarchical deterministic (HD) account generation.
 - <BLOCKCHAIN\_DATA\_PATH> : Location in which the blockchain data is stored.
 
 Once Ganache is running you can use tools such as [Remix IDE] to connect to your local blockchain and deploy the smart contracts' code. 
