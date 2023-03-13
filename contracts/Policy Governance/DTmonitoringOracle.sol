@@ -20,4 +20,3 @@ contract DTmonitoringOracle
 
 event NewMonitoring(address obligationsContract, int idMonitoring, int idResource);
 }
-}

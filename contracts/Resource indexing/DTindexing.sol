@@ -1,14 +1,11 @@
 // SPDX-License-Identifier: GPL-3.0
 pragma solidity ^0.8.0;
-import "../Tokenization/DTsubscription.sol";
 import "../Policy Governance/DTobligations.sol";
   contract DTindexing
 {
 
     int private podsCounter=0;
     int private resourceCounter=0;
-    DTsubscription private dtSubscription;
-
     Pod[] private podList;
     Resource[] private resourceList;
     address monitoringOracle;
@@ -100,6 +97,4 @@ struct Resource
 
 }
  
-
-  
 }
