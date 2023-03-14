@@ -67,8 +67,22 @@ To execute the generated binary file:
 ```
 
 ### Personal online datastore
+Navigate to the folder ```node/DataProvision/pods/``` through:
+```
+cd /volume/UsageControl-DecentralTrading/node/DataProvision/pods/
+```
+The ```DTaddresses.py``` file contains all the addresses of the deployed smart contracts. Set the addresses of your deployed smart contracts. Below there is an example of the file:
+```
+#Address of the DTindexing smart contract.
+DTINDEXING="<DTindexing_ADDRESS>"
+
+#Address of the DTsubscriptions smart contract.
+DTSUBSCRIPTION="<DTsubscriptions_ADDRESS>"
+
+#Address of the DTtoken smart contract.
+DTTOKEN="<DTtoken_ADDRESS>"
+```
+Finally, to run the personal online datastore ececute the command:
 ```
 python3 app.py
 ```
-change the thext of the addresses in the DTaddresses.py file
-
