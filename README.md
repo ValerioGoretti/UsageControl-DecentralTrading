@@ -4,12 +4,12 @@ This repository contains the code for the ReGov Framework. You can find a detail
 ## How to run the framework
 ### Docker setup
 To run the code, we prepared a Docker container containing all the necessary requirements in order to run the framework. 
+In the container is installed:
+- [Intel sgx sdk]
+- [ubuntu 18.04]
+- [Ganche]
 
-- Intel sgx sdk
-- ubuntu 18.04
-- Ganche
-
-First of all you need to have Docker installed, you can do that by following this page. After installation, you can start creating the container to run the framework. 
+First of all you need to have [Docker] installed, you can do that by following [this page](https://docs.docker.com/get-docker/). After installation, you can start creating the container to run the framework. 
 ```
 docker pull dave0909/sgx-ubuntu_18.04:latest
 ```
@@ -33,7 +33,7 @@ git clone https://github.com/ValerioGoretti/UsageControl-DecentralTrading.git
 ```
 
 ## Structure of the repository
-The repository is composed of two main folders. The ```/contracts``` folder contains the Solidity code of the smart contracts that are part of the blockchain infrastructure. In  ```/node``` you can find the prototype implementation of the data consumption and data provision module, respectively in ```/node/TrustedApplication``` and ```/node/pods```.
+The repository is composed of two main folders. The ```/contracts``` folder contains the [Solidity] code of the smart contracts that are part of the blockchain infrastructure. In  ```/node``` you can find the prototype implementation of the data consumption and data provision module, respectively in ```/node/TrustedApplication``` and ```/node/pods```.
 ### Ganache and smart contracts
 In order to setup the blockchain environment you will need to run the Ganache local blockchain and deploy the smart contracts in the ```/contracts``` folder.
 Start the Ganache environment by using:
@@ -47,7 +47,7 @@ where:
 Once Ganache is running you can use tools such as [Remix IDE] to connect to your local blockchain and deploy the smart contracts' code. 
 
 ### Intel SGX trusted application
-Whenever you start the Docker container, run the following command in order to set the environment variables necessary to execute Intel SGX:
+Whenever you start the Docker container, run the following command in order to set the environment variables necessary to execute [Intel SGX]:
 ```
 source /linux-sgx/linux/installer/bin/sgxsdk/environment
 ```
@@ -86,3 +86,14 @@ Finally, to run the personal online datastore ececute the command:
 ```
 python3 app.py
 ```
+
+
+[//]: # 
+[Intel sgx sdk]: <https://www.intel.com/content/www/us/en/developer/tools/software-guard-extensions/linux-overview.html>
+[ubuntu 18.04]: <https://releases.ubuntu.com/18.04/>
+[Ganche]: <https://trufflesuite.com/ganache/>
+[Docker]: <https://www.docker.com>
+[Solidity]: <https://docs.soliditylang.org/en/v0.8.19/>
+[Remix IDE]: <https://remix.ethereum.org/>
+[Intel SGX]: <https://www.intel.com/content/www/us/en/architecture-and-technology/software-guard-extensions.html>
+[SGX drivers]: <https://github.com/intel/linux-sgx-driver>
